@@ -1,0 +1,37 @@
+[
+  {
+    "id": "creeper_hiss",
+    "entityId": "creeper",
+    "name": "Creeper",
+    "soundFile": "/sounds/creeper.ogg",
+    "category": "Mob"
+  },
+  {
+    "id": "enderman_idle",
+    "entityId": "enderman",
+    "name": "Enderman",
+    "soundFile": "/sounds/enderman.ogg",
+    "category": "Mob"
+  },
+  {
+    "id": "ghast_scream",
+    "entityId": "ghast",
+    "name": "Ghast",
+    "soundFile": "/sounds/ghast.ogg",
+    "category": "Mob"
+  },
+  {
+    "id": "blaze_breath",
+    "entityId": "blaze",
+    "name": "Blaze",
+    "soundFile": "/sounds/blaze.ogg",
+    "category": "Mob"
+  },
+  {
+    "id": "wolf_bark",
+    "entityId": "wolf",
+    "name": "Wolf",
+    "soundFile": "/sounds/wolf.ogg",
+    "category": "Mob"
+  }
+]

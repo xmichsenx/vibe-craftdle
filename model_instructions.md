@@ -8,15 +8,15 @@
 
 ## Tech Stack
 
-| Layer       | Technology                        |
-|-------------|-----------------------------------|
-| Frontend    | React + TypeScript                |
-| Backend     | Node.js + Express + TypeScript    |
-| Styling     | Tailwind CSS                      |
-| Data Store  | JSON files / in-memory            |
+| Layer       | Technology                                            |
+| ----------- | ----------------------------------------------------- |
+| Frontend    | React + TypeScript                                    |
+| Backend     | Node.js + Express + TypeScript                        |
+| Styling     | Tailwind CSS                                          |
+| Data Store  | JSON files / in-memory                                |
 | Testing     | Jest (unit/integration) for both frontend and backend |
-| Build Tool  | Vite (frontend), ts-node / tsc (backend) |
-| Data Source | minecraft.wiki API (MediaWiki API) at build time |
+| Build Tool  | Vite (frontend), ts-node / tsc (backend)              |
+| Data Source | minecraft.wiki API (MediaWiki API) at build time      |
 
 ---
 
@@ -37,14 +37,14 @@
 
 **Feedback Attributes (columns):**
 
-| Attribute       | Description                                      | Values                                              |
-|-----------------|--------------------------------------------------|-----------------------------------------------------|
-| Type / Category | What kind of entity it is                        | Block, Item, Tool, Weapon, Armor, Food, Mob         |
-| Dimension       | Where it is primarily found                      | Overworld, Nether, End (can be multiple)            |
-| Behavior        | Mob behavior (only for mobs)                     | Hostile, Passive, Neutral, N/A (for non-mobs)      |
-| Stackable       | Whether it can stack in inventory                | Yes / No                                            |
-| Renewable       | Whether it can be obtained infinitely            | Yes / No                                            |
-| Version Added   | The Minecraft version it was introduced in       | e.g., "1.0", "1.19", "1.21"                        |
+| Attribute       | Description                                | Values                                        |
+| --------------- | ------------------------------------------ | --------------------------------------------- |
+| Type / Category | What kind of entity it is                  | Block, Item, Tool, Weapon, Armor, Food, Mob   |
+| Dimension       | Where it is primarily found                | Overworld, Nether, End (can be multiple)      |
+| Behavior        | Mob behavior (only for mobs)               | Hostile, Passive, Neutral, N/A (for non-mobs) |
+| Stackable       | Whether it can stack in inventory          | Yes / No                                      |
+| Renewable       | Whether it can be obtained infinitely      | Yes / No                                      |
+| Version Added   | The Minecraft version it was introduced in | e.g., "1.0", "1.19", "1.21"                   |
 
 **Feedback Style:** Simple match (green) / no-match (red) per attribute. No directional arrows.
 
@@ -59,6 +59,7 @@
 **Subject Pool:** All craftable items and blocks that have a crafting recipe.
 
 **Mechanics:**
+
 - A 3×3 grid is displayed with 9 slots, all hidden initially.
 - After each wrong guess, one random hidden slot is revealed (showing the ingredient texture or "empty" if the slot is unused).
 - The output item is NOT shown — the player must deduce it from revealed ingredients.
@@ -75,6 +76,7 @@
 **Subject Pool:** Items and Blocks (anything with a texture sprite).
 
 **Mechanics:**
+
 - Start by showing a randomly positioned 4×4 pixel crop from the 16×16 texture, displayed at large scale.
 - After each wrong guess, expand the visible area (e.g., 4×4 → 6×6 → 8×8 → 10×10 → 12×12 → full 16×16).
 - The player types their guess from an autocomplete search.
@@ -90,6 +92,7 @@
 **Subject Pool:** Mobs, Blocks, and Items that have distinct sound effects.
 
 **Mechanics:**
+
 - The full sound clip is played immediately (no progressive reveal).
 - The player can replay the sound as many times as they want.
 - The player types their guess from an autocomplete search.
@@ -101,6 +104,7 @@
 ## User Guess Limit Configuration
 
 Before starting any game mode, the player can choose a guess limit:
+
 - **Unlimited** (default)
 - **Custom number:** 5, 10, 15, 20 (selectable)
 
@@ -113,6 +117,7 @@ This is set per-round via a settings panel or pre-game screen. When the limit is
 All game data is stored as JSON files, loaded into memory at server startup.
 
 ### Items & Blocks (`data/items.json`)
+
 ```json
 {
   "id": "diamond_sword",
@@ -128,6 +133,7 @@ All game data is stored as JSON files, loaded into memory at server startup.
 ```
 
 ### Mobs (`data/mobs.json`)
+
 ```json
 {
   "id": "creeper",
@@ -145,6 +151,7 @@ All game data is stored as JSON files, loaded into memory at server startup.
 ```
 
 ### Biomes (`data/biomes.json`)
+
 ```json
 {
   "id": "dark_forest",
@@ -156,6 +163,7 @@ All game data is stored as JSON files, loaded into memory at server startup.
 ```
 
 ### Crafting Recipes (`data/recipes.json`)
+
 ```json
 {
   "itemId": "diamond_sword",
@@ -163,13 +171,14 @@ All game data is stored as JSON files, loaded into memory at server startup.
   "grid": [
     [null, "diamond", null],
     [null, "diamond", null],
-    [null, "stick",   null]
+    [null, "stick", null]
   ],
   "shapeless": false
 }
 ```
 
 ### Sounds (`data/sounds.json`)
+
 ```json
 {
   "id": "creeper_hiss",
@@ -194,26 +203,27 @@ https://minecraft.wiki/api.php
 
 This is a standard MediaWiki API. Key actions used:
 
-| Action                | Purpose                                                       |
-|-----------------------|---------------------------------------------------------------|
+| Action                              | Purpose                                                                |
+| ----------------------------------- | ---------------------------------------------------------------------- |
 | `action=query&list=categorymembers` | List all pages in a category (e.g., `Category:Items`, `Category:Mobs`) |
-| `action=parse&page=...`             | Get parsed HTML/wikitext of a page (infobox data, crafting recipes) |
-| `action=query&prop=revisions`       | Get raw wikitext for structured parsing                      |
-| `action=query&prop=imageinfo`       | Get URLs for texture/image files                             |
-| `action=query&titles=File:...`      | Resolve file pages to direct download URLs for textures/sounds |
+| `action=parse&page=...`             | Get parsed HTML/wikitext of a page (infobox data, crafting recipes)    |
+| `action=query&prop=revisions`       | Get raw wikitext for structured parsing                                |
+| `action=query&prop=imageinfo`       | Get URLs for texture/image files                                       |
+| `action=query&titles=File:...`      | Resolve file pages to direct download URLs for textures/sounds         |
 
 ### Data Targets
 
-| Data               | API Approach                                                        |
-|--------------------|---------------------------------------------------------------------|
-| Items & Blocks     | Query `Category:Items` and `Category:Blocks` members, then parse each page's infobox via `action=parse` |
-| Mobs               | Query `Category:Mobs` members, parse infobox for behavior, dimension, etc. |
-| Biomes             | Query `Category:Biomes` members, parse infobox attributes           |
-| Crafting Recipes   | Parse individual item pages — extract crafting grid from wikitext/HTML |
-| Textures           | Use `action=query&prop=imageinfo` on `File:` pages to get direct image URLs, download to `public/textures/` |
-| Sounds             | Query sound file pages, download `.ogg` files to `public/sounds/`   |
+| Data             | API Approach                                                                                                |
+| ---------------- | ----------------------------------------------------------------------------------------------------------- |
+| Items & Blocks   | Query `Category:Items` and `Category:Blocks` members, then parse each page's infobox via `action=parse`     |
+| Mobs             | Query `Category:Mobs` members, parse infobox for behavior, dimension, etc.                                  |
+| Biomes           | Query `Category:Biomes` members, parse infobox attributes                                                   |
+| Crafting Recipes | Parse individual item pages — extract crafting grid from wikitext/HTML                                      |
+| Textures         | Use `action=query&prop=imageinfo` on `File:` pages to get direct image URLs, download to `public/textures/` |
+| Sounds           | Query sound file pages, download `.ogg` files to `public/sounds/`                                           |
 
 ### Fetch Approach
+
 - Use `axios` or `node-fetch` to call the MediaWiki API endpoints.
 - Respect the wiki's rate limits (add delays between requests, use batch queries where possible via `titles=Page1|Page2|...`).
 - Parse infobox templates from wikitext to extract structured attributes (type, dimension, behavior, stackable, renewable, version added).
@@ -331,47 +341,55 @@ Craftdle/
 ## API Endpoints
 
 ### Game Session Flow
+
 Each game mode follows the same pattern:
+
 1. **Start a new round** → server picks a random target, returns a session ID.
 2. **Submit a guess** → server compares guess to target, returns feedback.
 3. **Give up / Game over** → server reveals the answer.
 
 ### Classic Mode
-| Method | Endpoint                          | Description                             |
-|--------|-----------------------------------|-----------------------------------------|
-| POST   | `/api/classic/start`              | Start new round, returns `sessionId`    |
-| POST   | `/api/classic/guess`              | Submit guess, returns attribute feedback |
-| GET    | `/api/classic/answer/:sessionId`  | Reveal answer (give up)                 |
+
+| Method | Endpoint                         | Description                              |
+| ------ | -------------------------------- | ---------------------------------------- |
+| POST   | `/api/classic/start`             | Start new round, returns `sessionId`     |
+| POST   | `/api/classic/guess`             | Submit guess, returns attribute feedback |
+| GET    | `/api/classic/answer/:sessionId` | Reveal answer (give up)                  |
 
 ### Crafting Grid Mode
-| Method | Endpoint                           | Description                                |
-|--------|------------------------------------|--------------------------------------------|
-| POST   | `/api/crafting/start`              | Start new round, returns `sessionId` + hidden grid |
-| POST   | `/api/crafting/guess`              | Submit guess, reveals one ingredient on wrong guess |
-| GET    | `/api/crafting/answer/:sessionId`  | Reveal answer                              |
+
+| Method | Endpoint                          | Description                                         |
+| ------ | --------------------------------- | --------------------------------------------------- |
+| POST   | `/api/crafting/start`             | Start new round, returns `sessionId` + hidden grid  |
+| POST   | `/api/crafting/guess`             | Submit guess, reveals one ingredient on wrong guess |
+| GET    | `/api/crafting/answer/:sessionId` | Reveal answer                                       |
 
 ### Texture Close-up Mode
-| Method | Endpoint                           | Description                                     |
-|--------|------------------------------------|-------------------------------------------------|
-| POST   | `/api/texture/start`               | Start round, returns `sessionId` + initial crop |
-| POST   | `/api/texture/guess`               | Submit guess, zooms out on wrong guess          |
-| GET    | `/api/texture/answer/:sessionId`   | Reveal answer                                   |
+
+| Method | Endpoint                         | Description                                     |
+| ------ | -------------------------------- | ----------------------------------------------- |
+| POST   | `/api/texture/start`             | Start round, returns `sessionId` + initial crop |
+| POST   | `/api/texture/guess`             | Submit guess, zooms out on wrong guess          |
+| GET    | `/api/texture/answer/:sessionId` | Reveal answer                                   |
 
 ### Sound Mode
-| Method | Endpoint                          | Description                           |
-|--------|-----------------------------------|---------------------------------------|
-| POST   | `/api/sound/start`                | Start round, returns `sessionId` + sound URL |
-| POST   | `/api/sound/guess`                | Submit guess, returns match result    |
-| GET    | `/api/sound/answer/:sessionId`    | Reveal answer                         |
+
+| Method | Endpoint                       | Description                                  |
+| ------ | ------------------------------ | -------------------------------------------- |
+| POST   | `/api/sound/start`             | Start round, returns `sessionId` + sound URL |
+| POST   | `/api/sound/guess`             | Submit guess, returns match result           |
+| GET    | `/api/sound/answer/:sessionId` | Reveal answer                                |
 
 ### Shared
-| Method | Endpoint                | Description                              |
-|--------|-------------------------|------------------------------------------|
-| GET    | `/api/items/search?q=`  | Autocomplete search across all entities  |
+
+| Method | Endpoint               | Description                             |
+| ------ | ---------------------- | --------------------------------------- |
+| GET    | `/api/items/search?q=` | Autocomplete search across all entities |
 
 ### Request/Response Examples
 
 **POST `/api/classic/start`**
+
 ```json
 // Request
 { "guessLimit": 10 }
@@ -386,6 +404,7 @@ Each game mode follows the same pattern:
 ```
 
 **POST `/api/classic/guess`**
+
 ```json
 // Request
 { "sessionId": "abc123", "guess": "creeper" }
@@ -411,33 +430,39 @@ Each game mode follows the same pattern:
 ## Frontend Behavior
 
 ### General
+
 - **Autocomplete search:** All guess inputs use a searchable dropdown that filters the entity list as the user types. Data fetched from `/api/items/search?q=`.
 - **Guess history:** All previous guesses and their feedback are displayed in a scrollable list/table above the input.
 - **Responsive:** Mobile-first responsive design using Tailwind CSS.
 - **Mode selection:** A home/hub page lets the player choose a game mode.
 
 ### Classic Mode UI
+
 - Table layout with columns for each attribute.
 - Each row = one guess. Cells are colored green (match) or red (no match).
 - Guess input at the bottom with autocomplete.
 
 ### Crafting Grid Mode UI
+
 - A visual 3×3 grid with slot squares.
 - Hidden slots show a "?" icon. Revealed slots show the ingredient texture.
 - Guess input below the grid.
 - The output slot (right side of the crafting table) remains hidden until the game is over.
 
 ### Texture Close-up Mode UI
+
 - A large square canvas showing the cropped/zoomed texture.
 - Smooth zoom-out animation on each wrong guess.
 - Guess input below the image.
 
 ### Sound Mode UI
+
 - A prominent "Play Sound" button.
 - Visual waveform or speaker animation while audio plays.
 - Guess input below the player.
 
 ### Game Over State
+
 - Modal or inline reveal showing: the correct answer, its texture, name, and a link to its minecraft.wiki page.
 - "Play Again" button to start a new round in the same mode.
 
@@ -460,11 +485,13 @@ Each game mode follows the same pattern:
 Both frontend and backend must have tests using **Jest**.
 
 ### Backend Tests
+
 - **Service tests:** Verify game logic (correct/incorrect comparison, progressive reveal, session management).
 - **Route tests:** HTTP-level tests using `supertest` for each endpoint.
 - **Utility tests:** Attribute comparison logic in `compare.ts`.
 
 ### Frontend Tests
+
 - **Component tests:** Using `@testing-library/react` for each game mode component.
 - **Hook tests:** Verify `useGame` and `useAutocomplete` hooks.
 - **Integration tests:** Full user flow per game mode (start → guess → feedback → win/lose).

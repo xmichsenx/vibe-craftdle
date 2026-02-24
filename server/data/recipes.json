@@ -1,0 +1,52 @@
+[
+  {
+    "itemId": "diamond_sword",
+    "name": "Diamond Sword",
+    "grid": [
+      [null, "diamond", null],
+      [null, "diamond", null],
+      [null, "stick", null]
+    ],
+    "shapeless": false
+  },
+  {
+    "itemId": "diamond_pickaxe",
+    "name": "Diamond Pickaxe",
+    "grid": [
+      ["diamond", "diamond", "diamond"],
+      [null, "stick", null],
+      [null, "stick", null]
+    ],
+    "shapeless": false
+  },
+  {
+    "itemId": "crafting_table",
+    "name": "Crafting Table",
+    "grid": [
+      ["oak_planks", "oak_planks", null],
+      ["oak_planks", "oak_planks", null],
+      [null, null, null]
+    ],
+    "shapeless": false
+  },
+  {
+    "itemId": "golden_apple",
+    "name": "Golden Apple",
+    "grid": [
+      ["gold_ingot", "gold_ingot", "gold_ingot"],
+      ["gold_ingot", "apple", "gold_ingot"],
+      ["gold_ingot", "gold_ingot", "gold_ingot"]
+    ],
+    "shapeless": false
+  },
+  {
+    "itemId": "oak_planks",
+    "name": "Oak Planks",
+    "grid": [
+      ["oak_log", null, null],
+      [null, null, null],
+      [null, null, null]
+    ],
+    "shapeless": true
+  }
+]

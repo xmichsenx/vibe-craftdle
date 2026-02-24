@@ -1,0 +1,112 @@
+[
+  {
+    "id": "diamond_sword",
+    "name": "Diamond Sword",
+    "type": "Weapon",
+    "dimension": ["Overworld"],
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "/textures/diamond_sword.png",
+    "wikiUrl": "https://minecraft.wiki/w/Diamond_Sword"
+  },
+  {
+    "id": "oak_planks",
+    "name": "Oak Planks",
+    "type": "Block",
+    "dimension": ["Overworld"],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "/textures/oak_planks.png",
+    "wikiUrl": "https://minecraft.wiki/w/Oak_Planks"
+  },
+  {
+    "id": "ender_pearl",
+    "name": "Ender Pearl",
+    "type": "Item",
+    "dimension": ["Overworld", "End"],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "/textures/ender_pearl.png",
+    "wikiUrl": "https://minecraft.wiki/w/Ender_Pearl"
+  },
+  {
+    "id": "netherite_chestplate",
+    "name": "Netherite Chestplate",
+    "type": "Armor",
+    "dimension": ["Nether"],
+    "stackable": false,
+    "renewable": false,
+    "versionAdded": "1.16",
+    "textureUrl": "/textures/netherite_chestplate.png",
+    "wikiUrl": "https://minecraft.wiki/w/Netherite_Chestplate"
+  },
+  {
+    "id": "golden_apple",
+    "name": "Golden Apple",
+    "type": "Food",
+    "dimension": ["Overworld"],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "/textures/golden_apple.png",
+    "wikiUrl": "https://minecraft.wiki/w/Golden_Apple"
+  },
+  {
+    "id": "diamond_pickaxe",
+    "name": "Diamond Pickaxe",
+    "type": "Tool",
+    "dimension": ["Overworld"],
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "/textures/diamond_pickaxe.png",
+    "wikiUrl": "https://minecraft.wiki/w/Diamond_Pickaxe"
+  },
+  {
+    "id": "obsidian",
+    "name": "Obsidian",
+    "type": "Block",
+    "dimension": ["Overworld", "Nether", "End"],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "/textures/obsidian.png",
+    "wikiUrl": "https://minecraft.wiki/w/Obsidian"
+  },
+  {
+    "id": "iron_ingot",
+    "name": "Iron Ingot",
+    "type": "Item",
+    "dimension": ["Overworld"],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "/textures/iron_ingot.png",
+    "wikiUrl": "https://minecraft.wiki/w/Iron_Ingot"
+  },
+  {
+    "id": "crafting_table",
+    "name": "Crafting Table",
+    "type": "Block",
+    "dimension": ["Overworld"],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "/textures/crafting_table.png",
+    "wikiUrl": "https://minecraft.wiki/w/Crafting_Table"
+  },
+  {
+    "id": "blaze_rod",
+    "name": "Blaze Rod",
+    "type": "Item",
+    "dimension": ["Nether"],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "/textures/blaze_rod.png",
+    "wikiUrl": "https://minecraft.wiki/w/Blaze_Rod"
+  }
+]

@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-mc-darker text-white;
+  }
+}
+
+/* Minecraft-style button */
+@layer components {
+  .mc-btn {
+    @apply px-6 py-3 bg-mc-stone text-white font-minecraft text-xs
+           border-2 border-t-mc-lightgray border-l-mc-lightgray
+           border-b-mc-dark border-r-mc-dark
+           hover:bg-mc-gray active:border-t-mc-dark active:border-l-mc-dark
+           active:border-b-mc-lightgray active:border-r-mc-lightgray
+           transition-colors cursor-pointer select-none;
+  }
+
+  .mc-btn-primary {
+    @apply mc-btn bg-mc-grass border-t-green-400 border-l-green-400
+           border-b-green-900 border-r-green-900 hover:bg-green-600;
+  }
+
+  .mc-input {
+    @apply w-full px-4 py-3 bg-mc-dark border-2 border-mc-stone
+           text-white font-minecraft text-xs
+           focus:border-mc-gold focus:outline-none
+           placeholder-mc-gray;
+  }
+
+  .mc-card {
+    @apply bg-mc-dark border-2 border-mc-stone p-4 rounded;
+  }
+
+  .attr-match {
+    @apply bg-green-700 border border-green-500;
+  }
+
+  .attr-no-match {
+    @apply bg-red-800 border border-red-600;
+  }
+}

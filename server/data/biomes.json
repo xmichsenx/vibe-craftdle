@@ -1,0 +1,37 @@
+[
+  {
+    "id": "plains",
+    "name": "Plains",
+    "dimension": ["Overworld"],
+    "versionAdded": "1.0",
+    "wikiUrl": "https://minecraft.wiki/w/Plains"
+  },
+  {
+    "id": "dark_forest",
+    "name": "Dark Forest",
+    "dimension": ["Overworld"],
+    "versionAdded": "1.0",
+    "wikiUrl": "https://minecraft.wiki/w/Dark_Forest"
+  },
+  {
+    "id": "nether_wastes",
+    "name": "Nether Wastes",
+    "dimension": ["Nether"],
+    "versionAdded": "1.0",
+    "wikiUrl": "https://minecraft.wiki/w/Nether_Wastes"
+  },
+  {
+    "id": "the_end",
+    "name": "The End",
+    "dimension": ["End"],
+    "versionAdded": "1.0",
+    "wikiUrl": "https://minecraft.wiki/w/The_End_(biome)"
+  },
+  {
+    "id": "deep_dark",
+    "name": "Deep Dark",
+    "dimension": ["Overworld"],
+    "versionAdded": "1.19",
+    "wikiUrl": "https://minecraft.wiki/w/Deep_Dark"
+  }
+]
