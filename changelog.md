@@ -4,6 +4,45 @@ All notable changes to the Craftdle project are documented in this file.
 
 ---
 
+## [0.3.1] - 2026-02-26
+
+### Changed
+
+- **`npm run dev`** now uses colored, labeled output (`[server]` in blue, `[client]` in green) via `concurrently -n -c`.
+- Added **`npm run start`** — builds both server and client, then runs them in production mode (Express + Vite preview) concurrently.
+- Added **`npm run setup`** — one-command bootstrap: installs all dependencies (root, server, client) and fetches wiki data.
+- Reordered `npm test` to run server tests before client tests.
+
+---
+
+## [0.3.0] - 2026-02-24
+
+### Added
+
+- **Comprehensive test suite**: 118 tests total (69 server + 49 client), all passing.
+  - Server: `compare.test.ts` (6), `sessionService.test.ts` (14), `classicService.test.ts` (9), `craftingService.test.ts` (8), `textureService.test.ts` (8), `soundService.test.ts` (8), `routes.test.ts` (14 via supertest).
+  - Client: `api.test.ts` (16), `useGame.test.ts` (14), `useAutocomplete.test.ts` (8), `components.test.tsx` (11 — GuessLimitSelector + GameLayout).
+- **`useGame` generic hook** (`client/src/hooks/useGame.ts`): extracts all shared game state management (session, guesses, game over, error, answer) into a single reusable hook parameterized by `<TStartRes, TGuessRes>`. Used by all 4 game modes.
+- **`GameLayout` component** (`client/src/components/common/GameLayout.tsx`): shared UI layout for start screen, in-game header, autocomplete, past guesses, and game over modal. Used by Crafting, Texture, and Sound modes.
+- **`createGameRouter` factory** (`server/src/routes/createGameRouter.ts`): eliminates ~120 lines of duplicated Express route boilerplate across the 4 game mode route files.
+
+### Changed
+
+- **Server routes refactored**: `classicRoutes.ts`, `craftingRoutes.ts`, `soundRoutes.ts`, `textureRoutes.ts` each reduced from ~35 lines to ~12 lines by delegating to `createGameRouter`.
+- **CraftingGame.tsx** refactored from ~170 lines to ~55 lines using `useGame` + `GameLayout`.
+- **TextureGame.tsx** refactored from ~155 lines to ~57 lines using `useGame` + `GameLayout`.
+- **SoundGame.tsx** refactored from ~130 lines to ~38 lines using `useGame` + `GameLayout`.
+- **ClassicGame.tsx** refactored to use `useGame` hook (keeps custom layout for attribute feedback table).
+- **`jest.config.cjs` (client)**: fixed typo `setupFilesAfterSetup` → `setupFilesAfterEnv`, added `moduleDirectories` for test resolution from `tests/client/`.
+- **`jest.config.js` (server)**: added `moduleDirectories` for test resolution from `tests/server/`.
+- **`fetch-data` npm script**: changed from `cd scripts && npx ts-node` to `npx ts-node scripts/fetch-wiki-data.ts` so `process.cwd()` resolves `server/data` correctly.
+
+### Dependencies
+
+- Added `supertest@7` and `mime@3` (server devDependencies) for HTTP route testing.
+
+---
+
 ## [0.2.0] - 2026-02-24
 
 ### Added

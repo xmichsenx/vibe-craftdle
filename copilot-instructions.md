@@ -519,3 +519,10 @@ Both frontend and backend must have tests using **Jest**.
 - Commit after each meaningful milestone (scaffolding, new mode, data scripts, etc.).
 - Use clear, descriptive commit messages.
 - All changes must be recorded in `changelog.md` with date, description, and version.
+
+## Important instructions for the model
+
+- use subagents to break down a tasks into smaller tasks to save time and context window
+- ensure all code is well-documented with comments and JSDoc where appropriate
+- maintain a clean and consistent code style across the project
+- prioritize modularity and separation of concerns in both frontend and backend codebases

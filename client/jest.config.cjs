@@ -5,7 +5,8 @@ module.exports = {
   roots: ["<rootDir>/src", "<rootDir>/../tests/client"],
   testMatch: ["**/*.test.{ts,tsx}"],
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json"],
-  setupFilesAfterSetup: ["@testing-library/jest-dom"],
+  moduleDirectories: ["node_modules", "<rootDir>/node_modules"],
+  setupFilesAfterEnv: ["@testing-library/jest-dom"],
   transform: {
     "^.+\\.tsx?$": ["ts-jest", { tsconfig: "tsconfig.json" }],
   },

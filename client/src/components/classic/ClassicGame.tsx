@@ -8,73 +8,51 @@ import {
   guessClassic,
   getClassicAnswer,
 } from "../../services/api";
+import { useGame } from "../../hooks/useGame";
 import {
   ClassicGuessFeedback,
-  AnswerResponse,
-  SearchResult,
+  ClassicStartResponse,
+  ClassicGuessResponse,
 } from "../../types";
 
 export default function ClassicGame() {
-  const [sessionId, setSessionId] = useState<string | null>(null);
-  const [guessLimit, setGuessLimit] = useState<number | null>(null);
-  const [guessesRemaining, setGuessesRemaining] = useState<number | null>(null);
   const [guesses, setGuesses] = useState<ClassicGuessFeedback[]>([]);
-  const [gameOver, setGameOver] = useState(false);
-  const [won, setWon] = useState(false);
-  const [answer, setAnswer] = useState<AnswerResponse | null>(null);
-  const [error, setError] = useState("");
 
-  async function handleStart() {
-    try {
-      const res = await startClassic(guessLimit);
-      setSessionId(res.sessionId);
-      setGuessesRemaining(res.guessesRemaining);
+  const game = useGame<ClassicStartResponse, ClassicGuessResponse>({
+    startApi: startClassic,
+    guessApi: guessClassic,
+    answerApi: getClassicAnswer,
+    onStartResponse: (res) => {
       setGuesses([]);
-      setGameOver(false);
-      setWon(false);
-      setAnswer(null);
-      setError("");
-    } catch (e: any) {
-      setError(e.message);
-    }
-  }
-
-  async function handleGuess(item: SearchResult) {
-    if (!sessionId || gameOver) return;
-    try {
-      const res = await guessClassic(sessionId, item.name);
+      return {
+        sessionId: res.sessionId,
+        guessesRemaining: res.guessesRemaining,
+      };
+    },
+    onGuessResponse: (res) => {
       setGuesses((prev) => [...prev, res.feedback]);
-      setGuessesRemaining(res.guessesRemaining);
+      return { correct: res.correct, guessesRemaining: res.guessesRemaining };
+    },
+  });
 
-      if (res.correct) {
-        setWon(true);
-        setGameOver(true);
-        const ans = await getClassicAnswer(sessionId);
-        setAnswer(ans);
-      } else if (res.guessesRemaining !== null && res.guessesRemaining <= 0) {
-        setGameOver(true);
-        const ans = await getClassicAnswer(sessionId);
-        setAnswer(ans);
-      }
-      setError("");
-    } catch (e: any) {
-      setError(e.message);
-    }
-  }
-
-  async function handleGiveUp() {
-    if (!sessionId) return;
-    setGameOver(true);
-    const ans = await getClassicAnswer(sessionId);
-    setAnswer(ans);
-  }
+  const {
+    sessionId,
+    guessLimit,
+    guessesRemaining,
+    gameOver,
+    won,
+    answer,
+    error,
+    setGuessLimit,
+    start,
+    guess,
+    giveUp,
+    playAgain,
+  } = game;
 
   function handlePlayAgain() {
-    setSessionId(null);
     setGuesses([]);
-    setGameOver(false);
-    setWon(false);
-    setAnswer(null);
+    playAgain();
   }
 
   // Pre-game: show start screen
@@ -87,7 +65,7 @@ export default function ClassicGame() {
           which attributes match.
         </p>
         <GuessLimitSelector value={guessLimit} onChange={setGuessLimit} />
-        <button onClick={handleStart} className="mc-btn-primary">
+        <button onClick={start} className="mc-btn-primary">
           Start Game
         </button>
       </div>
@@ -106,7 +84,7 @@ export default function ClassicGame() {
             </span>
           )}
           {!gameOver && (
-            <button onClick={handleGiveUp} className="mc-btn text-xs py-1 px-3">
+            <button onClick={giveUp} className="mc-btn text-xs py-1 px-3">
               Give Up
             </button>
           )}
@@ -141,7 +119,7 @@ export default function ClassicGame() {
       {/* Guess input */}
       {!gameOver && (
         <AutocompleteSearch
-          onSelect={handleGuess}
+          onSelect={guess}
           placeholder="Search for an item, block, or mob..."
         />
       )}
