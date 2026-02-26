@@ -311,5 +311,663 @@
     "versionAdded": "1.0",
     "textureUrl": "https://minecraft.wiki/images/Slime_JE1.png?dfcc5",
     "wikiUrl": "https://minecraft.wiki/w/Slime"
+  },
+  {
+    "id": "witch",
+    "name": "Witch",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Hostile",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.4",
+    "textureUrl": "https://minecraft.wiki/images/Witch_JE1.png?d7ff3",
+    "wikiUrl": "https://minecraft.wiki/w/Witch"
+  },
+  {
+    "id": "guardian",
+    "name": "Guardian",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Hostile",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.8",
+    "textureUrl": "https://minecraft.wiki/images/Guardian_JE1_BE1.png?57ead",
+    "wikiUrl": "https://minecraft.wiki/w/Guardian"
+  },
+  {
+    "id": "elder_guardian",
+    "name": "Elder Guardian",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Hostile",
+    "stackable": false,
+    "renewable": false,
+    "versionAdded": "1.8",
+    "textureUrl": "https://minecraft.wiki/images/Elder_Guardian_JE1_BE1.png?27777",
+    "wikiUrl": "https://minecraft.wiki/w/Elder_Guardian"
+  },
+  {
+    "id": "shulker",
+    "name": "Shulker",
+    "type": "Mob",
+    "dimension": [
+      "End"
+    ],
+    "behavior": "Hostile",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.9",
+    "textureUrl": "https://minecraft.wiki/images/Shulker_JE1_BE1.png?02a87",
+    "wikiUrl": "https://minecraft.wiki/w/Shulker"
+  },
+  {
+    "id": "evoker",
+    "name": "Evoker",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Hostile",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.11",
+    "textureUrl": "https://minecraft.wiki/images/Evoker_JE1_BE1.png?7555e",
+    "wikiUrl": "https://minecraft.wiki/w/Evoker"
+  },
+  {
+    "id": "vindicator",
+    "name": "Vindicator",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Hostile",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.11",
+    "textureUrl": "https://minecraft.wiki/images/Vindicator_JE1_BE1.png?796b2",
+    "wikiUrl": "https://minecraft.wiki/w/Vindicator"
+  },
+  {
+    "id": "pillager",
+    "name": "Pillager",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Hostile",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.14",
+    "textureUrl": "https://minecraft.wiki/images/Pillager_JE1.png?ca0f4",
+    "wikiUrl": "https://minecraft.wiki/w/Pillager"
+  },
+  {
+    "id": "ravager",
+    "name": "Ravager",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Hostile",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.14",
+    "textureUrl": "https://minecraft.wiki/images/Ravager_JE1.png?55aae",
+    "wikiUrl": "https://minecraft.wiki/w/Ravager"
+  },
+  {
+    "id": "hoglin",
+    "name": "Hoglin",
+    "type": "Mob",
+    "dimension": [
+      "Nether"
+    ],
+    "behavior": "Hostile",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.16",
+    "textureUrl": "https://minecraft.wiki/images/Hoglin_JE1.png?493b8",
+    "wikiUrl": "https://minecraft.wiki/w/Hoglin"
+  },
+  {
+    "id": "piglin_brute",
+    "name": "Piglin Brute",
+    "type": "Mob",
+    "dimension": [
+      "Nether"
+    ],
+    "behavior": "Hostile",
+    "stackable": false,
+    "renewable": false,
+    "versionAdded": "1.16",
+    "textureUrl": "https://minecraft.wiki/images/Piglin_Brute_JE1_BE1.png?5d4a0",
+    "wikiUrl": "https://minecraft.wiki/w/Piglin_Brute"
+  },
+  {
+    "id": "silverfish",
+    "name": "Silverfish",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Hostile",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/images/Silverfish_JE1_BE1.png?83218",
+    "wikiUrl": "https://minecraft.wiki/w/Silverfish"
+  },
+  {
+    "id": "cave_spider",
+    "name": "Cave Spider",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Hostile",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/images/Cave_Spider_JE1_BE1.png?83cec",
+    "wikiUrl": "https://minecraft.wiki/w/Cave_Spider"
+  },
+  {
+    "id": "drowned",
+    "name": "Drowned",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Hostile",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.13",
+    "textureUrl": "https://minecraft.wiki/images/Drowned_JE1.png?2454e",
+    "wikiUrl": "https://minecraft.wiki/w/Drowned"
+  },
+  {
+    "id": "husk",
+    "name": "Husk",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Hostile",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.10",
+    "textureUrl": "https://minecraft.wiki/images/Husk_JE1_BE1.png?7d4a0",
+    "wikiUrl": "https://minecraft.wiki/w/Husk"
+  },
+  {
+    "id": "stray",
+    "name": "Stray",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Hostile",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.10",
+    "textureUrl": "https://minecraft.wiki/images/Stray_JE1_BE3.png?35242",
+    "wikiUrl": "https://minecraft.wiki/w/Stray"
+  },
+  {
+    "id": "breeze",
+    "name": "Breeze",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Hostile",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.21",
+    "textureUrl": "https://minecraft.wiki/images/Breeze_JE1.png?26ed5",
+    "wikiUrl": "https://minecraft.wiki/w/Breeze"
+  },
+  {
+    "id": "bogged",
+    "name": "Bogged",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Hostile",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.21",
+    "textureUrl": "https://minecraft.wiki/images/Bogged_JE1_BE1.png?89459",
+    "wikiUrl": "https://minecraft.wiki/w/Bogged"
+  },
+  {
+    "id": "bee",
+    "name": "Bee",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Neutral",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.15",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Bee_JE2.png",
+    "wikiUrl": "https://minecraft.wiki/w/Bee"
+  },
+  {
+    "id": "dolphin",
+    "name": "Dolphin",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Neutral",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.13",
+    "textureUrl": "https://minecraft.wiki/images/Dolphin_JE1_BE2.png?cc498",
+    "wikiUrl": "https://minecraft.wiki/w/Dolphin"
+  },
+  {
+    "id": "llama",
+    "name": "Llama",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Neutral",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.11",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Llama_JE2.png",
+    "wikiUrl": "https://minecraft.wiki/w/Llama"
+  },
+  {
+    "id": "panda",
+    "name": "Panda",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Neutral",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.14",
+    "textureUrl": "https://minecraft.wiki/images/Panda_JE1_BE1.png?31d00",
+    "wikiUrl": "https://minecraft.wiki/w/Panda"
+  },
+  {
+    "id": "polar_bear",
+    "name": "Polar Bear",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Neutral",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.10",
+    "textureUrl": "https://minecraft.wiki/images/Polar_Bear_JE1_BE1.png?ca2c3",
+    "wikiUrl": "https://minecraft.wiki/w/Polar_Bear"
+  },
+  {
+    "id": "piglin",
+    "name": "Piglin",
+    "type": "Mob",
+    "dimension": [
+      "Nether"
+    ],
+    "behavior": "Neutral",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.16",
+    "textureUrl": "https://minecraft.wiki/images/Piglin_JE1.png?a498e",
+    "wikiUrl": "https://minecraft.wiki/w/Piglin"
+  },
+  {
+    "id": "fox",
+    "name": "Fox",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Neutral",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.14",
+    "textureUrl": "https://minecraft.wiki/images/Fox_JE1_BE1.png?ebd36",
+    "wikiUrl": "https://minecraft.wiki/w/Fox"
+  },
+  {
+    "id": "goat",
+    "name": "Goat",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Neutral",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.17",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Goat_JE2.png",
+    "wikiUrl": "https://minecraft.wiki/w/Goat"
+  },
+  {
+    "id": "trader_llama",
+    "name": "Trader Llama",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Neutral",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.14",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Trader_Llama_JE2.png",
+    "wikiUrl": "https://minecraft.wiki/w/Trader_Llama"
+  },
+  {
+    "id": "zombified_piglin",
+    "name": "Zombified Piglin",
+    "type": "Mob",
+    "dimension": [
+      "Nether"
+    ],
+    "behavior": "Neutral",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.16",
+    "textureUrl": "https://minecraft.wiki/images/Zombified_Piglin_JE1.png?f0097",
+    "wikiUrl": "https://minecraft.wiki/w/Zombified_Piglin"
+  },
+  {
+    "id": "horse",
+    "name": "Horse",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Passive",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.6",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Horse_JE2.png",
+    "wikiUrl": "https://minecraft.wiki/w/Horse"
+  },
+  {
+    "id": "donkey",
+    "name": "Donkey",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Passive",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.6",
+    "textureUrl": "https://minecraft.wiki/images/Donkey_JE1.png?e5294",
+    "wikiUrl": "https://minecraft.wiki/w/Donkey"
+  },
+  {
+    "id": "mule",
+    "name": "Mule",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Passive",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.6",
+    "textureUrl": "https://minecraft.wiki/images/Mule_JE1.png?bf429",
+    "wikiUrl": "https://minecraft.wiki/w/Mule"
+  },
+  {
+    "id": "rabbit",
+    "name": "Rabbit",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Passive",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.8",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Rabbit_JE2.png",
+    "wikiUrl": "https://minecraft.wiki/w/Rabbit"
+  },
+  {
+    "id": "squid",
+    "name": "Squid",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Passive",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/images/Squid_JE1_BE1.png?d0fd1",
+    "wikiUrl": "https://minecraft.wiki/w/Squid"
+  },
+  {
+    "id": "glow_squid",
+    "name": "Glow Squid",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Passive",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.17",
+    "textureUrl": "https://minecraft.wiki/images/Glow_Squid_JE1.png?8b130",
+    "wikiUrl": "https://minecraft.wiki/w/Glow_Squid"
+  },
+  {
+    "id": "axolotl",
+    "name": "Axolotl",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Passive",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.17",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Axolotl_JE2.png",
+    "wikiUrl": "https://minecraft.wiki/w/Axolotl"
+  },
+  {
+    "id": "turtle",
+    "name": "Turtle",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Passive",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.13",
+    "textureUrl": "https://minecraft.wiki/images/Turtle_JE2.png?4e2f9",
+    "wikiUrl": "https://minecraft.wiki/w/Turtle"
+  },
+  {
+    "id": "parrot",
+    "name": "Parrot",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Passive",
+    "stackable": false,
+    "renewable": false,
+    "versionAdded": "1.12",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Parrot_JE2.png",
+    "wikiUrl": "https://minecraft.wiki/w/Parrot"
+  },
+  {
+    "id": "bat",
+    "name": "Bat",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Passive",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.4",
+    "textureUrl": "https://minecraft.wiki/images/Bat_JE1_BE1.png?55f87",
+    "wikiUrl": "https://minecraft.wiki/w/Bat"
+  },
+  {
+    "id": "ocelot",
+    "name": "Ocelot",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Passive",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.2",
+    "textureUrl": "https://minecraft.wiki/images/Ocelot_JE1_BE1.png?d78f5",
+    "wikiUrl": "https://minecraft.wiki/w/Ocelot"
+  },
+  {
+    "id": "mooshroom",
+    "name": "Mooshroom",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Passive",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/images/Red_Mooshroom_JE1.png?d8e37",
+    "wikiUrl": "https://minecraft.wiki/w/Mooshroom"
+  },
+  {
+    "id": "snow_golem",
+    "name": "Snow Golem",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Passive",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/images/Snow_Golem_JE1_BE1.png?06357",
+    "wikiUrl": "https://minecraft.wiki/w/Snow_Golem"
+  },
+  {
+    "id": "allay",
+    "name": "Allay",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Passive",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.19",
+    "textureUrl": "https://minecraft.wiki/images/Allay_JE1_BE1.png?643d1",
+    "wikiUrl": "https://minecraft.wiki/w/Allay"
+  },
+  {
+    "id": "frog",
+    "name": "Frog",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Passive",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.19",
+    "textureUrl": "https://minecraft.wiki/images/Temperate_Frog_JE1_BE1.png?41fba",
+    "wikiUrl": "https://minecraft.wiki/w/Frog"
+  },
+  {
+    "id": "camel",
+    "name": "Camel",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Passive",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.20",
+    "textureUrl": "https://minecraft.wiki/images/Camel_JE1_BE2.png?b76b7",
+    "wikiUrl": "https://minecraft.wiki/w/Camel"
+  },
+  {
+    "id": "armadillo",
+    "name": "Armadillo",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Passive",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.20",
+    "textureUrl": "https://minecraft.wiki/images/Armadillo_JE1.png?d112d",
+    "wikiUrl": "https://minecraft.wiki/w/Armadillo"
+  },
+  {
+    "id": "sniffer",
+    "name": "Sniffer",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Passive",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.20",
+    "textureUrl": "https://minecraft.wiki/images/Sniffer_JE1_BE1.png?fcd3e",
+    "wikiUrl": "https://minecraft.wiki/w/Sniffer"
+  },
+  {
+    "id": "strider",
+    "name": "Strider",
+    "type": "Mob",
+    "dimension": [
+      "Nether"
+    ],
+    "behavior": "Passive",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.16",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Strider_JE2.png",
+    "wikiUrl": "https://minecraft.wiki/w/Strider"
+  },
+  {
+    "id": "wandering_trader",
+    "name": "Wandering Trader",
+    "type": "Mob",
+    "dimension": [
+      "Overworld"
+    ],
+    "behavior": "Passive",
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.14",
+    "textureUrl": "https://minecraft.wiki/images/Wandering_Trader_JE1_BE1.png?309b9",
+    "wikiUrl": "https://minecraft.wiki/w/Wandering_Trader"
   }
 ]

@@ -1069,5 +1069,1828 @@
     "versionAdded": "1.0",
     "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Melon_Slice.png",
     "wikiUrl": "https://minecraft.wiki/w/Melon_Slice"
+  },
+  {
+    "id": "stone_axe",
+    "name": "Stone Axe",
+    "type": "Tool",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Stone_Axe.png",
+    "wikiUrl": "https://minecraft.wiki/w/Stone_Axe"
+  },
+  {
+    "id": "wooden_axe",
+    "name": "Wooden Axe",
+    "type": "Tool",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Wooden_Axe.png",
+    "wikiUrl": "https://minecraft.wiki/w/Wooden_Axe"
+  },
+  {
+    "id": "golden_axe",
+    "name": "Golden Axe",
+    "type": "Tool",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Golden_Axe.png",
+    "wikiUrl": "https://minecraft.wiki/w/Golden_Axe"
+  },
+  {
+    "id": "iron_hoe",
+    "name": "Iron Hoe",
+    "type": "Tool",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Iron_Hoe.png",
+    "wikiUrl": "https://minecraft.wiki/w/Iron_Hoe"
+  },
+  {
+    "id": "stone_hoe",
+    "name": "Stone Hoe",
+    "type": "Tool",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Stone_Hoe.png",
+    "wikiUrl": "https://minecraft.wiki/w/Stone_Hoe"
+  },
+  {
+    "id": "wooden_hoe",
+    "name": "Wooden Hoe",
+    "type": "Tool",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Wooden_Hoe.png",
+    "wikiUrl": "https://minecraft.wiki/w/Wooden_Hoe"
+  },
+  {
+    "id": "golden_hoe",
+    "name": "Golden Hoe",
+    "type": "Tool",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Golden_Hoe.png",
+    "wikiUrl": "https://minecraft.wiki/w/Golden_Hoe"
+  },
+  {
+    "id": "stone_shovel",
+    "name": "Stone Shovel",
+    "type": "Tool",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Stone_Shovel.png",
+    "wikiUrl": "https://minecraft.wiki/w/Stone_Shovel"
+  },
+  {
+    "id": "wooden_shovel",
+    "name": "Wooden Shovel",
+    "type": "Tool",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Wooden_Shovel.png",
+    "wikiUrl": "https://minecraft.wiki/w/Wooden_Shovel"
+  },
+  {
+    "id": "iron_shovel",
+    "name": "Iron Shovel",
+    "type": "Tool",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Iron_Shovel.png",
+    "wikiUrl": "https://minecraft.wiki/w/Iron_Shovel"
+  },
+  {
+    "id": "golden_shovel",
+    "name": "Golden Shovel",
+    "type": "Tool",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Golden_Shovel.png",
+    "wikiUrl": "https://minecraft.wiki/w/Golden_Shovel"
+  },
+  {
+    "id": "golden_pickaxe",
+    "name": "Golden Pickaxe",
+    "type": "Tool",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Golden_Pickaxe.png",
+    "wikiUrl": "https://minecraft.wiki/w/Golden_Pickaxe"
+  },
+  {
+    "id": "spyglass",
+    "name": "Spyglass",
+    "type": "Tool",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.17",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Spyglass.png",
+    "wikiUrl": "https://minecraft.wiki/w/Spyglass"
+  },
+  {
+    "id": "lead",
+    "name": "Lead",
+    "type": "Tool",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.6",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Lead.png",
+    "wikiUrl": "https://minecraft.wiki/w/Lead"
+  },
+  {
+    "id": "map",
+    "name": "Empty Map",
+    "type": "Tool",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Empty_Map.png",
+    "wikiUrl": "https://minecraft.wiki/w/Empty_Map"
+  },
+  {
+    "id": "carrot_on_a_stick",
+    "name": "Carrot on a Stick",
+    "type": "Tool",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.4",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Carrot_on_a_Stick.png",
+    "wikiUrl": "https://minecraft.wiki/w/Carrot_on_a_Stick"
+  },
+  {
+    "id": "golden_sword",
+    "name": "Golden Sword",
+    "type": "Weapon",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Golden_Sword.png",
+    "wikiUrl": "https://minecraft.wiki/w/Golden_Sword"
+  },
+  {
+    "id": "golden_helmet",
+    "name": "Golden Helmet",
+    "type": "Armor",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Golden_Helmet.png",
+    "wikiUrl": "https://minecraft.wiki/w/Golden_Helmet"
+  },
+  {
+    "id": "golden_chestplate",
+    "name": "Golden Chestplate",
+    "type": "Armor",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Golden_Chestplate.png",
+    "wikiUrl": "https://minecraft.wiki/w/Golden_Chestplate"
+  },
+  {
+    "id": "golden_leggings",
+    "name": "Golden Leggings",
+    "type": "Armor",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Golden_Leggings.png",
+    "wikiUrl": "https://minecraft.wiki/w/Golden_Leggings"
+  },
+  {
+    "id": "golden_boots",
+    "name": "Golden Boots",
+    "type": "Armor",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Golden_Boots.png",
+    "wikiUrl": "https://minecraft.wiki/w/Golden_Boots"
+  },
+  {
+    "id": "leather_helmet",
+    "name": "Leather Cap",
+    "type": "Armor",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Leather_Cap.png",
+    "wikiUrl": "https://minecraft.wiki/w/Leather_Cap"
+  },
+  {
+    "id": "leather_chestplate",
+    "name": "Leather Tunic",
+    "type": "Armor",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Leather_Tunic.png",
+    "wikiUrl": "https://minecraft.wiki/w/Leather_Tunic"
+  },
+  {
+    "id": "leather_leggings",
+    "name": "Leather Pants",
+    "type": "Armor",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Leather_Pants.png",
+    "wikiUrl": "https://minecraft.wiki/w/Leather_Pants"
+  },
+  {
+    "id": "leather_boots",
+    "name": "Leather Boots",
+    "type": "Armor",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Leather_Boots.png",
+    "wikiUrl": "https://minecraft.wiki/w/Leather_Boots"
+  },
+  {
+    "id": "turtle_helmet",
+    "name": "Turtle Shell",
+    "type": "Armor",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.13",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Turtle_Shell.png",
+    "wikiUrl": "https://minecraft.wiki/w/Turtle_Shell"
+  },
+  {
+    "id": "hopper",
+    "name": "Hopper",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.5",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Hopper.png",
+    "wikiUrl": "https://minecraft.wiki/w/Hopper"
+  },
+  {
+    "id": "dropper",
+    "name": "Dropper",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.5",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Dropper.png",
+    "wikiUrl": "https://minecraft.wiki/w/Dropper"
+  },
+  {
+    "id": "dispenser",
+    "name": "Dispenser",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.2",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Dispenser.png",
+    "wikiUrl": "https://minecraft.wiki/w/Dispenser"
+  },
+  {
+    "id": "observer",
+    "name": "Observer",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.11",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Observer.png",
+    "wikiUrl": "https://minecraft.wiki/w/Observer"
+  },
+  {
+    "id": "note_block",
+    "name": "Note Block",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Note_Block.png",
+    "wikiUrl": "https://minecraft.wiki/w/Note_Block"
+  },
+  {
+    "id": "jukebox",
+    "name": "Jukebox",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Jukebox.png",
+    "wikiUrl": "https://minecraft.wiki/w/Jukebox"
+  },
+  {
+    "id": "beacon",
+    "name": "Beacon",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": false,
+    "versionAdded": "1.4",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Beacon.png",
+    "wikiUrl": "https://minecraft.wiki/w/Beacon"
+  },
+  {
+    "id": "brewing_stand",
+    "name": "Brewing Stand",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Brewing_Stand.png",
+    "wikiUrl": "https://minecraft.wiki/w/Brewing_Stand"
+  },
+  {
+    "id": "composter",
+    "name": "Composter",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.14",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Composter.png",
+    "wikiUrl": "https://minecraft.wiki/w/Composter"
+  },
+  {
+    "id": "barrel",
+    "name": "Barrel",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.14",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Barrel.png",
+    "wikiUrl": "https://minecraft.wiki/w/Barrel"
+  },
+  {
+    "id": "smoker",
+    "name": "Smoker",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.14",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Smoker.png",
+    "wikiUrl": "https://minecraft.wiki/w/Smoker"
+  },
+  {
+    "id": "blast_furnace",
+    "name": "Blast Furnace",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.14",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Blast_Furnace.png",
+    "wikiUrl": "https://minecraft.wiki/w/Blast_Furnace"
+  },
+  {
+    "id": "stonecutter",
+    "name": "Stonecutter",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.14",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Stonecutter.png",
+    "wikiUrl": "https://minecraft.wiki/w/Stonecutter"
+  },
+  {
+    "id": "grindstone",
+    "name": "Grindstone",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.14",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Grindstone.png",
+    "wikiUrl": "https://minecraft.wiki/w/Grindstone"
+  },
+  {
+    "id": "smithing_table",
+    "name": "Smithing Table",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.14",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Smithing_Table.png",
+    "wikiUrl": "https://minecraft.wiki/w/Smithing_Table"
+  },
+  {
+    "id": "fletching_table",
+    "name": "Fletching Table",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.14",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Fletching_Table.png",
+    "wikiUrl": "https://minecraft.wiki/w/Fletching_Table"
+  },
+  {
+    "id": "cartography_table",
+    "name": "Cartography Table",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.14",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Cartography_Table.png",
+    "wikiUrl": "https://minecraft.wiki/w/Cartography_Table"
+  },
+  {
+    "id": "loom",
+    "name": "Loom",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.14",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Loom.png",
+    "wikiUrl": "https://minecraft.wiki/w/Loom"
+  },
+  {
+    "id": "lectern",
+    "name": "Lectern",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.14",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Lectern.png",
+    "wikiUrl": "https://minecraft.wiki/w/Lectern"
+  },
+  {
+    "id": "target",
+    "name": "Target",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.16",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Target.png",
+    "wikiUrl": "https://minecraft.wiki/w/Target"
+  },
+  {
+    "id": "campfire",
+    "name": "Campfire",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.14",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Campfire.png",
+    "wikiUrl": "https://minecraft.wiki/w/Campfire"
+  },
+  {
+    "id": "soul_campfire",
+    "name": "Soul Campfire",
+    "type": "Block",
+    "dimension": [
+      "Overworld",
+      "Nether"
+    ],
+    "stackable": true,
+    "renewable": false,
+    "versionAdded": "1.16",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Soul_Campfire.png",
+    "wikiUrl": "https://minecraft.wiki/w/Soul_Campfire"
+  },
+  {
+    "id": "lantern",
+    "name": "Lantern",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.14",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Lantern.png",
+    "wikiUrl": "https://minecraft.wiki/w/Lantern"
+  },
+  {
+    "id": "chain",
+    "name": "Chain",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.16",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Chain.png",
+    "wikiUrl": "https://minecraft.wiki/w/Chain"
+  },
+  {
+    "id": "lightning_rod",
+    "name": "Lightning Rod",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.17",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Lightning_Rod.png",
+    "wikiUrl": "https://minecraft.wiki/w/Lightning_Rod"
+  },
+  {
+    "id": "rail",
+    "name": "Rail",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Rail.png",
+    "wikiUrl": "https://minecraft.wiki/w/Rail"
+  },
+  {
+    "id": "powered_rail",
+    "name": "Powered Rail",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Powered_Rail.png",
+    "wikiUrl": "https://minecraft.wiki/w/Powered_Rail"
+  },
+  {
+    "id": "detector_rail",
+    "name": "Detector Rail",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Detector_Rail.png",
+    "wikiUrl": "https://minecraft.wiki/w/Detector_Rail"
+  },
+  {
+    "id": "activator_rail",
+    "name": "Activator Rail",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.5",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Activator_Rail.png",
+    "wikiUrl": "https://minecraft.wiki/w/Activator_Rail"
+  },
+  {
+    "id": "ladder",
+    "name": "Ladder",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Ladder.png",
+    "wikiUrl": "https://minecraft.wiki/w/Ladder"
+  },
+  {
+    "id": "iron_bars",
+    "name": "Iron Bars",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Iron_Bars.png",
+    "wikiUrl": "https://minecraft.wiki/w/Iron_Bars"
+  },
+  {
+    "id": "glass_pane",
+    "name": "Glass Pane",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Glass_Pane.png",
+    "wikiUrl": "https://minecraft.wiki/w/Glass_Pane"
+  },
+  {
+    "id": "redstone_lamp",
+    "name": "Redstone Lamp",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.2",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Redstone_Lamp.png",
+    "wikiUrl": "https://minecraft.wiki/w/Redstone_Lamp"
+  },
+  {
+    "id": "trapped_chest",
+    "name": "Trapped Chest",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.5",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Trapped_Chest.png",
+    "wikiUrl": "https://minecraft.wiki/w/Trapped_Chest"
+  },
+  {
+    "id": "ender_chest",
+    "name": "Ender Chest",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.3",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Ender_Chest.png",
+    "wikiUrl": "https://minecraft.wiki/w/Ender_Chest"
+  },
+  {
+    "id": "shulker_box",
+    "name": "Shulker Box",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.11",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Shulker_Box.png",
+    "wikiUrl": "https://minecraft.wiki/w/Shulker_Box"
+  },
+  {
+    "id": "painting",
+    "name": "Painting",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Painting.png",
+    "wikiUrl": "https://minecraft.wiki/w/Painting"
+  },
+  {
+    "id": "item_frame",
+    "name": "Item Frame",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.4",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Item_Frame.png",
+    "wikiUrl": "https://minecraft.wiki/w/Item_Frame"
+  },
+  {
+    "id": "armor_stand",
+    "name": "Armor Stand",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.8",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Armor_Stand.png",
+    "wikiUrl": "https://minecraft.wiki/w/Armor_Stand"
+  },
+  {
+    "id": "flower_pot",
+    "name": "Flower Pot",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.4",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Flower_Pot.png",
+    "wikiUrl": "https://minecraft.wiki/w/Flower_Pot"
+  },
+  {
+    "id": "oak_sign",
+    "name": "Oak Sign",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Oak_Sign.png",
+    "wikiUrl": "https://minecraft.wiki/w/Oak_Sign"
+  },
+  {
+    "id": "redstone_torch",
+    "name": "Redstone Torch",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Redstone_Torch.png",
+    "wikiUrl": "https://minecraft.wiki/w/Redstone_Torch"
+  },
+  {
+    "id": "tripwire_hook",
+    "name": "Tripwire Hook",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.3",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Tripwire_Hook.png",
+    "wikiUrl": "https://minecraft.wiki/w/Tripwire_Hook"
+  },
+  {
+    "id": "lever",
+    "name": "Lever",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Lever.png",
+    "wikiUrl": "https://minecraft.wiki/w/Lever"
+  },
+  {
+    "id": "stone_button",
+    "name": "Stone Button",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Stone_Button.png",
+    "wikiUrl": "https://minecraft.wiki/w/Stone_Button"
+  },
+  {
+    "id": "stone_pressure_plate",
+    "name": "Stone Pressure Plate",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Stone_Pressure_Plate.png",
+    "wikiUrl": "https://minecraft.wiki/w/Stone_Pressure_Plate"
+  },
+  {
+    "id": "iron_door",
+    "name": "Iron Door",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Iron_Door.png",
+    "wikiUrl": "https://minecraft.wiki/w/Iron_Door"
+  },
+  {
+    "id": "oak_door",
+    "name": "Oak Door",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Oak_Door.png",
+    "wikiUrl": "https://minecraft.wiki/w/Oak_Door"
+  },
+  {
+    "id": "oak_fence",
+    "name": "Oak Fence",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Oak_Fence.png",
+    "wikiUrl": "https://minecraft.wiki/w/Oak_Fence"
+  },
+  {
+    "id": "oak_fence_gate",
+    "name": "Oak Fence Gate",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Oak_Fence_Gate.png",
+    "wikiUrl": "https://minecraft.wiki/w/Oak_Fence_Gate"
+  },
+  {
+    "id": "oak_stairs",
+    "name": "Oak Stairs",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Oak_Stairs.png",
+    "wikiUrl": "https://minecraft.wiki/w/Oak_Stairs"
+  },
+  {
+    "id": "oak_slab",
+    "name": "Oak Slab",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Oak_Slab.png",
+    "wikiUrl": "https://minecraft.wiki/w/Oak_Slab"
+  },
+  {
+    "id": "cobblestone_stairs",
+    "name": "Cobblestone Stairs",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Cobblestone_Stairs.png",
+    "wikiUrl": "https://minecraft.wiki/w/Cobblestone_Stairs"
+  },
+  {
+    "id": "cobblestone_slab",
+    "name": "Cobblestone Slab",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Cobblestone_Slab.png",
+    "wikiUrl": "https://minecraft.wiki/w/Cobblestone_Slab"
+  },
+  {
+    "id": "stone_bricks",
+    "name": "Stone Bricks",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Stone_Bricks.png",
+    "wikiUrl": "https://minecraft.wiki/w/Stone_Bricks"
+  },
+  {
+    "id": "hay_bale",
+    "name": "Hay Bale",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.6",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Hay_Bale.png",
+    "wikiUrl": "https://minecraft.wiki/w/Hay_Bale"
+  },
+  {
+    "id": "bricks",
+    "name": "Bricks",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Bricks.png",
+    "wikiUrl": "https://minecraft.wiki/w/Bricks"
+  },
+  {
+    "id": "nether_bricks",
+    "name": "Nether Bricks",
+    "type": "Block",
+    "dimension": [
+      "Nether"
+    ],
+    "stackable": true,
+    "renewable": false,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Nether_Bricks.png",
+    "wikiUrl": "https://minecraft.wiki/w/Nether_Bricks"
+  },
+  {
+    "id": "quartz_block",
+    "name": "Block of Quartz",
+    "type": "Block",
+    "dimension": [
+      "Nether"
+    ],
+    "stackable": true,
+    "renewable": false,
+    "versionAdded": "1.5",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Block_of_Quartz.png",
+    "wikiUrl": "https://minecraft.wiki/w/Block_of_Quartz"
+  },
+  {
+    "id": "scaffolding",
+    "name": "Scaffolding",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.14",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Scaffolding.png",
+    "wikiUrl": "https://minecraft.wiki/w/Scaffolding"
+  },
+  {
+    "id": "white_bed",
+    "name": "White Bed",
+    "type": "Block",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_White_Bed.png",
+    "wikiUrl": "https://minecraft.wiki/w/White_Bed"
+  },
+  {
+    "id": "paper",
+    "name": "Paper",
+    "type": "Item",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Paper.png",
+    "wikiUrl": "https://minecraft.wiki/w/Paper"
+  },
+  {
+    "id": "arrow",
+    "name": "Arrow",
+    "type": "Item",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Arrow.png",
+    "wikiUrl": "https://minecraft.wiki/w/Arrow"
+  },
+  {
+    "id": "spectral_arrow",
+    "name": "Spectral Arrow",
+    "type": "Item",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.9",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Spectral_Arrow.png",
+    "wikiUrl": "https://minecraft.wiki/w/Spectral_Arrow"
+  },
+  {
+    "id": "firework_rocket",
+    "name": "Firework Rocket",
+    "type": "Item",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.4",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Firework_Rocket.png",
+    "wikiUrl": "https://minecraft.wiki/w/Firework_Rocket"
+  },
+  {
+    "id": "bone_meal",
+    "name": "Bone Meal",
+    "type": "Item",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Bone_Meal.png",
+    "wikiUrl": "https://minecraft.wiki/w/Bone_Meal"
+  },
+  {
+    "id": "sugar",
+    "name": "Sugar",
+    "type": "Item",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Sugar.png",
+    "wikiUrl": "https://minecraft.wiki/w/Sugar"
+  },
+  {
+    "id": "leather",
+    "name": "Leather",
+    "type": "Item",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Leather.png",
+    "wikiUrl": "https://minecraft.wiki/w/Leather"
+  },
+  {
+    "id": "feather",
+    "name": "Feather",
+    "type": "Item",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Feather.png",
+    "wikiUrl": "https://minecraft.wiki/w/Feather"
+  },
+  {
+    "id": "glowstone_dust",
+    "name": "Glowstone Dust",
+    "type": "Item",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Glowstone_Dust.png",
+    "wikiUrl": "https://minecraft.wiki/w/Glowstone_Dust"
+  },
+  {
+    "id": "copper_ingot",
+    "name": "Copper Ingot",
+    "type": "Item",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": false,
+    "versionAdded": "1.17",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Copper_Ingot.png",
+    "wikiUrl": "https://minecraft.wiki/w/Copper_Ingot"
+  },
+  {
+    "id": "amethyst_shard",
+    "name": "Amethyst Shard",
+    "type": "Item",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.17",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Amethyst_Shard.png",
+    "wikiUrl": "https://minecraft.wiki/w/Amethyst_Shard"
+  },
+  {
+    "id": "gold_nugget",
+    "name": "Gold Nugget",
+    "type": "Item",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Gold_Nugget.png",
+    "wikiUrl": "https://minecraft.wiki/w/Gold_Nugget"
+  },
+  {
+    "id": "iron_nugget",
+    "name": "Iron Nugget",
+    "type": "Item",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.11",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Iron_Nugget.png",
+    "wikiUrl": "https://minecraft.wiki/w/Iron_Nugget"
+  },
+  {
+    "id": "nether_star",
+    "name": "Nether Star",
+    "type": "Item",
+    "dimension": [
+      "Overworld",
+      "Nether",
+      "End"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.4",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Nether_Star.png",
+    "wikiUrl": "https://minecraft.wiki/w/Nether_Star"
+  },
+  {
+    "id": "heart_of_the_sea",
+    "name": "Heart of the Sea",
+    "type": "Item",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": false,
+    "versionAdded": "1.13",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Heart_of_the_Sea.png",
+    "wikiUrl": "https://minecraft.wiki/w/Heart_of_the_Sea"
+  },
+  {
+    "id": "phantom_membrane",
+    "name": "Phantom Membrane",
+    "type": "Item",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.13",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Phantom_Membrane.png",
+    "wikiUrl": "https://minecraft.wiki/w/Phantom_Membrane"
+  },
+  {
+    "id": "honeycomb",
+    "name": "Honeycomb",
+    "type": "Item",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.15",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Honeycomb.png",
+    "wikiUrl": "https://minecraft.wiki/w/Honeycomb"
+  },
+  {
+    "id": "quartz",
+    "name": "Nether Quartz",
+    "type": "Item",
+    "dimension": [
+      "Nether"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.5",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Nether_Quartz.png",
+    "wikiUrl": "https://minecraft.wiki/w/Nether_Quartz"
+  },
+  {
+    "id": "echo_shard",
+    "name": "Echo Shard",
+    "type": "Item",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": false,
+    "versionAdded": "1.19",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Echo_Shard.png",
+    "wikiUrl": "https://minecraft.wiki/w/Echo_Shard"
+  },
+  {
+    "id": "rabbit_hide",
+    "name": "Rabbit Hide",
+    "type": "Item",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.8",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Rabbit_Hide.png",
+    "wikiUrl": "https://minecraft.wiki/w/Rabbit_Hide"
+  },
+  {
+    "id": "scute",
+    "name": "Scute",
+    "type": "Item",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.13",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Scute.png",
+    "wikiUrl": "https://minecraft.wiki/w/Scute"
+  },
+  {
+    "id": "charcoal",
+    "name": "Charcoal",
+    "type": "Item",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Charcoal.png",
+    "wikiUrl": "https://minecraft.wiki/w/Charcoal"
+  },
+  {
+    "id": "raw_iron",
+    "name": "Raw Iron",
+    "type": "Item",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": false,
+    "versionAdded": "1.17",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Raw_Iron.png",
+    "wikiUrl": "https://minecraft.wiki/w/Raw_Iron"
+  },
+  {
+    "id": "raw_gold",
+    "name": "Raw Gold",
+    "type": "Item",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": false,
+    "versionAdded": "1.17",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Raw_Gold.png",
+    "wikiUrl": "https://minecraft.wiki/w/Raw_Gold"
+  },
+  {
+    "id": "raw_copper",
+    "name": "Raw Copper",
+    "type": "Item",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": false,
+    "versionAdded": "1.17",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Raw_Copper.png",
+    "wikiUrl": "https://minecraft.wiki/w/Raw_Copper"
+  },
+  {
+    "id": "slime_ball",
+    "name": "Slimeball",
+    "type": "Item",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Slimeball.png",
+    "wikiUrl": "https://minecraft.wiki/w/Slimeball"
+  },
+  {
+    "id": "magma_cream",
+    "name": "Magma Cream",
+    "type": "Item",
+    "dimension": [
+      "Nether"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Magma_Cream.png",
+    "wikiUrl": "https://minecraft.wiki/w/Magma_Cream"
+  },
+  {
+    "id": "ghast_tear",
+    "name": "Ghast Tear",
+    "type": "Item",
+    "dimension": [
+      "Nether"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Ghast_Tear.png",
+    "wikiUrl": "https://minecraft.wiki/w/Ghast_Tear"
+  },
+  {
+    "id": "ink_sac",
+    "name": "Ink Sac",
+    "type": "Item",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Ink_Sac.png",
+    "wikiUrl": "https://minecraft.wiki/w/Ink_Sac"
+  },
+  {
+    "id": "brick",
+    "name": "Brick",
+    "type": "Item",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Brick.png",
+    "wikiUrl": "https://minecraft.wiki/w/Brick"
+  },
+  {
+    "id": "nether_brick",
+    "name": "Nether Brick",
+    "type": "Item",
+    "dimension": [
+      "Nether"
+    ],
+    "stackable": true,
+    "renewable": false,
+    "versionAdded": "1.5",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Nether_Brick.png",
+    "wikiUrl": "https://minecraft.wiki/w/Nether_Brick"
+  },
+  {
+    "id": "prismarine_shard",
+    "name": "Prismarine Shard",
+    "type": "Item",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.8",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Prismarine_Shard.png",
+    "wikiUrl": "https://minecraft.wiki/w/Prismarine_Shard"
+  },
+  {
+    "id": "prismarine_crystals",
+    "name": "Prismarine Crystals",
+    "type": "Item",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.8",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Prismarine_Crystals.png",
+    "wikiUrl": "https://minecraft.wiki/w/Prismarine_Crystals"
+  },
+  {
+    "id": "nautilus_shell",
+    "name": "Nautilus Shell",
+    "type": "Item",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.13",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Nautilus_Shell.png",
+    "wikiUrl": "https://minecraft.wiki/w/Nautilus_Shell"
+  },
+  {
+    "id": "netherite_scrap",
+    "name": "Netherite Scrap",
+    "type": "Item",
+    "dimension": [
+      "Nether"
+    ],
+    "stackable": true,
+    "renewable": false,
+    "versionAdded": "1.16",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Netherite_Scrap.png",
+    "wikiUrl": "https://minecraft.wiki/w/Netherite_Scrap"
+  },
+  {
+    "id": "pumpkin_pie",
+    "name": "Pumpkin Pie",
+    "type": "Food",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.4",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Pumpkin_Pie.png",
+    "wikiUrl": "https://minecraft.wiki/w/Pumpkin_Pie"
+  },
+  {
+    "id": "golden_carrot",
+    "name": "Golden Carrot",
+    "type": "Food",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.4",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Golden_Carrot.png",
+    "wikiUrl": "https://minecraft.wiki/w/Golden_Carrot"
+  },
+  {
+    "id": "baked_potato",
+    "name": "Baked Potato",
+    "type": "Food",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.4",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Baked_Potato.png",
+    "wikiUrl": "https://minecraft.wiki/w/Baked_Potato"
+  },
+  {
+    "id": "dried_kelp",
+    "name": "Dried Kelp",
+    "type": "Food",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.13",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Dried_Kelp.png",
+    "wikiUrl": "https://minecraft.wiki/w/Dried_Kelp"
+  },
+  {
+    "id": "sweet_berries",
+    "name": "Sweet Berries",
+    "type": "Food",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.14",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Sweet_Berries.png",
+    "wikiUrl": "https://minecraft.wiki/w/Sweet_Berries"
+  },
+  {
+    "id": "glow_berries",
+    "name": "Glow Berries",
+    "type": "Food",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.17",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Glow_Berries.png",
+    "wikiUrl": "https://minecraft.wiki/w/Glow_Berries"
+  },
+  {
+    "id": "cooked_chicken",
+    "name": "Cooked Chicken",
+    "type": "Food",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Cooked_Chicken.png",
+    "wikiUrl": "https://minecraft.wiki/w/Cooked_Chicken"
+  },
+  {
+    "id": "cooked_mutton",
+    "name": "Cooked Mutton",
+    "type": "Food",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.8",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Cooked_Mutton.png",
+    "wikiUrl": "https://minecraft.wiki/w/Cooked_Mutton"
+  },
+  {
+    "id": "cooked_rabbit",
+    "name": "Cooked Rabbit",
+    "type": "Food",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.8",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Cooked_Rabbit.png",
+    "wikiUrl": "https://minecraft.wiki/w/Cooked_Rabbit"
+  },
+  {
+    "id": "cooked_cod",
+    "name": "Cooked Cod",
+    "type": "Food",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Cooked_Cod.png",
+    "wikiUrl": "https://minecraft.wiki/w/Cooked_Cod"
+  },
+  {
+    "id": "cooked_salmon",
+    "name": "Cooked Salmon",
+    "type": "Food",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Cooked_Salmon.png",
+    "wikiUrl": "https://minecraft.wiki/w/Cooked_Salmon"
+  },
+  {
+    "id": "honey_bottle",
+    "name": "Honey Bottle",
+    "type": "Food",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.15",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Honey_Bottle.png",
+    "wikiUrl": "https://minecraft.wiki/w/Honey_Bottle"
+  },
+  {
+    "id": "enchanted_golden_apple",
+    "name": "Enchanted Golden Apple",
+    "type": "Food",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": true,
+    "renewable": false,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Enchanted_Golden_Apple.png",
+    "wikiUrl": "https://minecraft.wiki/w/Enchanted_Golden_Apple"
+  },
+  {
+    "id": "chorus_fruit",
+    "name": "Chorus Fruit",
+    "type": "Food",
+    "dimension": [
+      "End"
+    ],
+    "stackable": true,
+    "renewable": true,
+    "versionAdded": "1.9",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Chorus_Fruit.png",
+    "wikiUrl": "https://minecraft.wiki/w/Chorus_Fruit"
+  },
+  {
+    "id": "mushroom_stew",
+    "name": "Mushroom Stew",
+    "type": "Food",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.0",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Mushroom_Stew.png",
+    "wikiUrl": "https://minecraft.wiki/w/Mushroom_Stew"
+  },
+  {
+    "id": "rabbit_stew",
+    "name": "Rabbit Stew",
+    "type": "Food",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.8",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Rabbit_Stew.png",
+    "wikiUrl": "https://minecraft.wiki/w/Rabbit_Stew"
+  },
+  {
+    "id": "beetroot_soup",
+    "name": "Beetroot Soup",
+    "type": "Food",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.9",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Beetroot_Soup.png",
+    "wikiUrl": "https://minecraft.wiki/w/Beetroot_Soup"
+  },
+  {
+    "id": "suspicious_stew",
+    "name": "Suspicious Stew",
+    "type": "Food",
+    "dimension": [
+      "Overworld"
+    ],
+    "stackable": false,
+    "renewable": true,
+    "versionAdded": "1.14",
+    "textureUrl": "https://minecraft.wiki/w/Special:FilePath/Invicon_Suspicious_Stew.png",
+    "wikiUrl": "https://minecraft.wiki/w/Suspicious_Stew"
   }
 ]

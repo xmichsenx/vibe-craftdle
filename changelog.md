@@ -4,6 +4,19 @@ All notable changes to the Craftdle project are documented in this file.
 
 ---
 
+## [0.4.0] - 2026-02-26
+
+### Added
+
+- **Massively expanded game data**: 222 items (was 82), 69 mobs (was 22), 140 recipes (was 35), 32 sounds (was 12), 235 ingredient icons (was 90).
+- **New blocks**: Shulker Box, Hopper, Dispenser, Dropper, Observer, Beacon, Brewing Stand, Barrel, Smoker, Blast Furnace, Stonecutter, Grindstone, Smithing Table, Campfire, Lantern, Ender Chest, Iron Bars, Rails, Scaffolding, and 50+ more.
+- **New tools/weapons/armor**: Full golden, leather, and stone tool/armor sets; Spyglass, Lead, Map, Turtle Shell.
+- **New mobs**: Witch, Guardian, Elder Guardian, Shulker, Pillager, Evoker, Bee, Dolphin, Fox, Goat, Axolotl, Frog, Camel, Armadillo, Sniffer, and 30+ more.
+- **New recipes**: 105 new crafting recipes including Shulker Box, Hopper, Dispenser, armor sets, tools, redstone components, and utility blocks.
+- **New sounds**: 20 additional mob sounds (Witch, Guardian, Shulker, Bee, Dolphin, Horse, Fox, Goat, Frog, etc.).
+
+---
+
 ## [0.3.3] - 2026-02-26
 
 ### Fixed
