@@ -61,12 +61,8 @@ describe("craftingService", () => {
       const game = startCraftingGame(10);
       const result = guessCrafting(game.sessionId, "Diamond Sword");
       if (!("error" in result)) {
-        if (result.correct) {
-          // Might actually be correct by chance
-          expect(result.guessesRemaining).toBe(10);
-        } else {
-          expect(result.guessesRemaining).toBe(9);
-        }
+        // Guesses are always consumed, even if correct by chance
+        expect(result.guessesRemaining).toBe(9);
       }
     });
   });

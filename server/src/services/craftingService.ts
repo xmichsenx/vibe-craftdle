@@ -160,6 +160,8 @@ export function getCraftingAnswer(
     id: recipe.itemId,
     name: recipe.name,
     textureUrl: item?.textureUrl ?? `/textures/${recipe.itemId}.png`,
-    wikiUrl: item?.wikiUrl ?? `https://minecraft.wiki/w/${recipe.name.replace(/ /g, "_")}`,
+    wikiUrl:
+      item?.wikiUrl ??
+      `https://minecraft.wiki/w/${recipe.name.replace(/ /g, "_")}`,
   };
 }

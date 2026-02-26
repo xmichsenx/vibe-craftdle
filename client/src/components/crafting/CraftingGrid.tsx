@@ -12,7 +12,7 @@ export default function CraftingGrid({
   ingredientIcons = {},
 }: CraftingGridProps) {
   return (
-    <div className="grid grid-cols-3 gap-1 w-48 h-48 sm:w-56 sm:h-56 bg-mc-dark border-2 border-mc-stone p-2">
+    <div className="grid grid-cols-3 grid-rows-3 gap-1 w-48 h-48 sm:w-56 sm:h-56 bg-mc-dark border-2 border-mc-stone p-2">
       {grid.flat().map((cell, index) => {
         const isRevealed = revealedSlots.includes(index);
         const iconUrl = cell ? ingredientIcons[cell] : undefined;
@@ -20,10 +20,10 @@ export default function CraftingGrid({
         return (
           <div
             key={index}
-            className={`flex items-center justify-center border border-mc-stone ${
+            className={`flex items-center justify-center aspect-square border border-mc-stone ${
               isRevealed
                 ? cell
-                  ? "bg-mc-wood"
+                  ? "bg-[#373737]"
                   : "bg-mc-dark"
                 : "bg-mc-obsidian"
             }`}

@@ -4,6 +4,16 @@ All notable changes to the Craftdle project are documented in this file.
 
 ---
 
+## [0.3.3] - 2026-02-26
+
+### Fixed
+
+- **Crafting grid layout**: Added `grid-rows-3` and `aspect-square` to ensure all cells are perfectly square regardless of content.
+- **Crafting grid slot color**: Changed revealed ingredient cell background from `bg-mc-wood` (#BC9862 beige) to `bg-[#373737]` (dark gray), matching Minecraft's actual crafting table slot appearance.
+- **Flaky test**: Fixed `craftingService` "decrements guesses remaining" test that failed when a random guess happened to be correct.
+
+---
+
 ## [0.3.2] - 2026-02-26
 
 ### Fixed
