@@ -4,4 +4,4 @@ dist/
 *.log
 .DS_Store
 .playwright-mcp/
-.github/
+.github/copilot-instructions.md
