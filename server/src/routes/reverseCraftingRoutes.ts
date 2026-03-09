@@ -13,7 +13,9 @@ router.post("/start", (req: Request, res: Response) => {
   const guessLimit =
     rawLimit === null
       ? null
-      : Number.isInteger(Number(rawLimit)) && Number(rawLimit) > 0 && Number(rawLimit) <= 100
+      : Number.isInteger(Number(rawLimit)) &&
+          Number(rawLimit) > 0 &&
+          Number(rawLimit) <= 100
         ? Number(rawLimit)
         : null;
   const result = startReverseCraftingGame(guessLimit);
@@ -32,7 +34,10 @@ router.post("/guess", (req: Request, res: Response) => {
     return res.status(400).json({ error: "sessionId and guess are required" });
   }
   // guess is the grid as a JSON string or object
-  const guessStr = typeof guess === "string" ? guess.slice(0, 2000) : JSON.stringify(guess).slice(0, 2000);
+  const guessStr =
+    typeof guess === "string"
+      ? guess.slice(0, 2000)
+      : JSON.stringify(guess).slice(0, 2000);
   const result = guessReverseCrafting(sessionId, guessStr);
   if ("error" in result) {
     return res.status(400).json(result);

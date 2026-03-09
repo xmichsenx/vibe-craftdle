@@ -34,9 +34,7 @@ export default function SilhouetteView({
       {/* Opacity indicator — placed outside the image container */}
       <span className="font-minecraft text-xs text-mc-gray">
         Visibility:{" "}
-        <span className="text-mc-gold">
-          {Math.round((1 - opacity) * 100)}%
-        </span>
+        <span className="text-mc-gold">{Math.round((1 - opacity) * 100)}%</span>
       </span>
     </div>
   );

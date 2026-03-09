@@ -20,7 +20,9 @@ export function createGameRouter(handlers: {
     const guessLimit =
       rawLimit === null
         ? null
-        : Number.isInteger(Number(rawLimit)) && Number(rawLimit) > 0 && Number(rawLimit) <= 100
+        : Number.isInteger(Number(rawLimit)) &&
+            Number(rawLimit) > 0 &&
+            Number(rawLimit) <= 100
           ? Number(rawLimit)
           : null;
     const result = handlers.start(guessLimit);
