@@ -49,6 +49,24 @@ export default function Header() {
           >
             Sound
           </Link>
+          <Link
+            to="/silhouette"
+            className="font-minecraft text-xs text-mc-gray hover:text-white transition-colors"
+          >
+            Silhouette
+          </Link>
+          <Link
+            to="/timeline"
+            className="font-minecraft text-xs text-mc-gray hover:text-white transition-colors"
+          >
+            Timeline
+          </Link>
+          <Link
+            to="/reverse-crafting"
+            className="font-minecraft text-xs text-mc-gray hover:text-white transition-colors"
+          >
+            Reverse
+          </Link>
         </nav>
       </div>
 
@@ -82,6 +100,27 @@ export default function Header() {
             className="font-minecraft text-xs text-mc-gray hover:text-white transition-colors"
           >
             🔊 Sound
+          </Link>
+          <Link
+            to="/silhouette"
+            onClick={() => setMenuOpen(false)}
+            className="font-minecraft text-xs text-mc-gray hover:text-white transition-colors"
+          >
+            👤 Silhouette
+          </Link>
+          <Link
+            to="/timeline"
+            onClick={() => setMenuOpen(false)}
+            className="font-minecraft text-xs text-mc-gray hover:text-white transition-colors"
+          >
+            📊 Timeline
+          </Link>
+          <Link
+            to="/reverse-crafting"
+            onClick={() => setMenuOpen(false)}
+            className="font-minecraft text-xs text-mc-gray hover:text-white transition-colors"
+          >
+            🧩 Reverse Crafting
           </Link>
         </nav>
       )}

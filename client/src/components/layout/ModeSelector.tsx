@@ -32,6 +32,25 @@ const MODES: {
     description: "Identify the mob, block, or item from its sound",
     icon: "🔊",
   },
+  {
+    mode: "silhouette",
+    title: "Silhouette",
+    description: "Identify the mob from its blacked-out silhouette shape",
+    icon: "👤",
+  },
+  {
+    mode: "timeline",
+    title: "Higher or Lower",
+    description:
+      "Guess if the next item was added in a higher or lower version",
+    icon: "📊",
+  },
+  {
+    mode: "reverse-crafting",
+    title: "Reverse Crafting",
+    description: "Place the ingredients in the correct grid positions",
+    icon: "🧩",
+  },
 ];
 
 export default function ModeSelector() {

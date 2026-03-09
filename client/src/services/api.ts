@@ -8,6 +8,12 @@ import {
   TextureGuessResponse,
   SoundStartResponse,
   SoundGuessResponse,
+  SilhouetteStartResponse,
+  SilhouetteGuessResponse,
+  TimelineStartResponse,
+  TimelineGuessResponse,
+  ReverseCraftingStartResponse,
+  ReverseCraftingGuessResponse,
   AnswerResponse,
 } from "../types";
 
@@ -129,4 +135,77 @@ export function guessSound(
 
 export function getSoundAnswer(sessionId: string): Promise<AnswerResponse> {
   return request<AnswerResponse>(`/sound/answer/${sessionId}`);
+}
+
+// Silhouette
+export function startSilhouette(
+  guessLimit: number | null,
+): Promise<SilhouetteStartResponse> {
+  return request<SilhouetteStartResponse>("/silhouette/start", {
+    method: "POST",
+    body: JSON.stringify({ guessLimit }),
+  });
+}
+
+export function guessSilhouette(
+  sessionId: string,
+  guess: string,
+): Promise<SilhouetteGuessResponse> {
+  return request<SilhouetteGuessResponse>("/silhouette/guess", {
+    method: "POST",
+    body: JSON.stringify({ sessionId, guess }),
+  });
+}
+
+export function getSilhouetteAnswer(
+  sessionId: string,
+): Promise<AnswerResponse> {
+  return request<AnswerResponse>(`/silhouette/answer/${sessionId}`);
+}
+
+// Timeline
+export function startTimeline(): Promise<TimelineStartResponse> {
+  return request<TimelineStartResponse>("/timeline/start", {
+    method: "POST",
+  });
+}
+
+export function guessTimeline(
+  sessionId: string,
+  guess: string,
+): Promise<TimelineGuessResponse> {
+  return request<TimelineGuessResponse>("/timeline/guess", {
+    method: "POST",
+    body: JSON.stringify({ sessionId, guess }),
+  });
+}
+
+export function getTimelineAnswer(sessionId: string): Promise<AnswerResponse> {
+  return request<AnswerResponse>(`/timeline/answer/${sessionId}`);
+}
+
+// Reverse Crafting
+export function startReverseCrafting(
+  guessLimit: number | null,
+): Promise<ReverseCraftingStartResponse> {
+  return request<ReverseCraftingStartResponse>("/reverse-crafting/start", {
+    method: "POST",
+    body: JSON.stringify({ guessLimit }),
+  });
+}
+
+export function guessReverseCrafting(
+  sessionId: string,
+  guess: (string | null)[][],
+): Promise<ReverseCraftingGuessResponse> {
+  return request<ReverseCraftingGuessResponse>("/reverse-crafting/guess", {
+    method: "POST",
+    body: JSON.stringify({ sessionId, guess }),
+  });
+}
+
+export function getReverseCraftingAnswer(
+  sessionId: string,
+): Promise<AnswerResponse> {
+  return request<AnswerResponse>(`/reverse-crafting/answer/${sessionId}`);
 }

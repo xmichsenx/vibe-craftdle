@@ -48,13 +48,8 @@ export default function GameOverModal({
   useEffect(() => {
     if (won) {
       fireConfetti();
-      // Auto-redirect to home after 4 seconds
-      const timer = setTimeout(() => {
-        navigate("/");
-      }, 4000);
-      return () => clearTimeout(timer);
     }
-  }, [won, navigate]);
+  }, [won]);
 
   const handleGoHome = useCallback(() => {
     navigate("/");
@@ -97,11 +92,11 @@ export default function GameOverModal({
 
         {won ? (
           <div className="flex flex-col gap-2">
-            <p className="text-mc-gray text-xs font-minecraft">
-              Returning to menu...
-            </p>
-            <button onClick={handleGoHome} className="mc-btn-primary">
-              Go Home Now
+            <button onClick={onPlayAgain} className="mc-btn-primary">
+              Play Again
+            </button>
+            <button onClick={handleGoHome} className="mc-btn text-xs py-2">
+              Back to Menu
             </button>
           </div>
         ) : (

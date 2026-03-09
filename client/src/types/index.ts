@@ -90,6 +90,87 @@ export interface SoundGuessResponse {
   guessesRemaining: number | null;
 }
 
+// Silhouette mode
+export interface SilhouetteStartResponse {
+  sessionId: string;
+  guessLimit: number | null;
+  guessesRemaining: number | null;
+  textureUrl: string;
+  opacity: number;
+}
+
+export interface SilhouetteGuessResponse {
+  correct: boolean;
+  guessesRemaining: number | null;
+  opacity: number;
+}
+
+// Timeline mode
+export interface TimelineStartResponse {
+  sessionId: string;
+  currentEntity: {
+    id: string;
+    name: string;
+    textureUrl: string;
+    versionAdded: string;
+  };
+  nextEntity: {
+    id: string;
+    name: string;
+    textureUrl: string;
+  };
+  streak: number;
+  bestStreak: number;
+}
+
+export interface TimelineGuessResponse {
+  correct: boolean;
+  correctAnswer: "higher" | "lower" | "same";
+  previousEntity: {
+    id: string;
+    name: string;
+    textureUrl: string;
+    versionAdded: string;
+  };
+  nextEntity: {
+    id: string;
+    name: string;
+    textureUrl: string;
+    versionAdded: string;
+  } | null;
+  upcomingEntity?: {
+    id: string;
+    name: string;
+    textureUrl: string;
+  };
+  streak: number;
+  bestStreak: number;
+  gameOver: boolean;
+}
+
+// Reverse crafting mode
+export interface ReverseCraftingStartResponse {
+  sessionId: string;
+  guessLimit: number | null;
+  guessesRemaining: number | null;
+  outputItem: { id: string; name: string; textureUrl: string };
+  gridSize: number;
+  availableIngredients: string[];
+  ingredientIcons: Record<string, string>;
+  lockedSlots: number[];
+  playerGrid: (string | null)[][];
+}
+
+export interface ReverseCraftingGuessResponse {
+  correct: boolean;
+  guessesRemaining: number | null;
+  correctCount: number;
+  totalFilledSlots: number;
+  lockedSlots: number[];
+  playerGrid: (string | null)[][];
+  ingredientIcons: Record<string, string>;
+}
+
 // Answer (shared)
 export interface AnswerResponse {
   id: string;
@@ -98,4 +179,11 @@ export interface AnswerResponse {
   wikiUrl: string;
 }
 
-export type GameMode = "classic" | "crafting" | "texture" | "sound";
+export type GameMode =
+  | "classic"
+  | "crafting"
+  | "texture"
+  | "sound"
+  | "silhouette"
+  | "timeline"
+  | "reverse-crafting";

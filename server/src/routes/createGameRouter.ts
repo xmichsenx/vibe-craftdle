@@ -16,14 +16,27 @@ export function createGameRouter(handlers: {
   const router = Router();
 
   router.post("/start", (req: Request, res: Response) => {
-    const { guessLimit = null } = req.body;
+    const rawLimit = req.body.guessLimit ?? null;
+    const guessLimit =
+      rawLimit === null
+        ? null
+        : Number.isInteger(Number(rawLimit)) && Number(rawLimit) > 0 && Number(rawLimit) <= 100
+          ? Number(rawLimit)
+          : null;
     const result = handlers.start(guessLimit);
     res.json(result);
   });
 
   router.post("/guess", (req: Request, res: Response) => {
     const { sessionId, guess } = req.body;
-    if (!sessionId || !guess) {
+    if (
+      !sessionId ||
+      !guess ||
+      typeof sessionId !== "string" ||
+      typeof guess !== "string" ||
+      sessionId.length > 100 ||
+      guess.length > 200
+    ) {
       return res
         .status(400)
         .json({ error: "sessionId and guess are required" });

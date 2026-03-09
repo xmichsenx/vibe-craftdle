@@ -46,7 +46,8 @@ function isValidForClassic(entity: ItemOrBlock | Mob): boolean {
     typeof entity.stackable === "boolean" &&
     typeof entity.renewable === "boolean" &&
     isNonEmpty(entity.versionAdded) &&
-    isNonEmpty(entity.textureUrl)
+    isNonEmpty(entity.textureUrl) &&
+    isNonEmpty(entity.wikiUrl)
   );
 }
 
@@ -210,6 +211,28 @@ export function searchCraftableItems(query: string, limit = 10): SearchHit[] {
         name: item.name,
         textureUrl: item.textureUrl,
         type: item.type,
+      });
+    }
+    if (results.length >= limit) break;
+  }
+
+  return results;
+}
+
+/**
+ * Search only mobs. Used by the silhouette game mode dropdown.
+ */
+export function searchMobs(query: string, limit = 10): SearchHit[] {
+  const q = query.toLowerCase();
+  const results: SearchHit[] = [];
+
+  for (const mob of mobs) {
+    if (mob.name.toLowerCase().includes(q)) {
+      results.push({
+        id: mob.id,
+        name: mob.name,
+        textureUrl: mob.textureUrl,
+        type: mob.type,
       });
     }
     if (results.length >= limit) break;

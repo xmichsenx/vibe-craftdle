@@ -170,4 +170,107 @@ describe("API Routes", () => {
       expect(typeof res.body.correct).toBe("boolean");
     });
   });
+
+  describe("Silhouette mode routes", () => {
+    it("POST /api/silhouette/start creates a game", async () => {
+      const res = await request(app)
+        .post("/api/silhouette/start")
+        .send({ guessLimit: null });
+      expect(res.status).toBe(200);
+      expect(res.body.sessionId).toBeDefined();
+      expect(res.body.opacity).toBe(1.0);
+      expect(res.body.textureUrl).toBeDefined();
+    });
+
+    it("POST /api/silhouette/guess works", async () => {
+      const start = await request(app)
+        .post("/api/silhouette/start")
+        .send({ guessLimit: null });
+      const res = await request(app)
+        .post("/api/silhouette/guess")
+        .send({ sessionId: start.body.sessionId, guess: "Creeper" });
+      expect(res.status).toBe(200);
+      expect(typeof res.body.correct).toBe("boolean");
+      expect(typeof res.body.opacity).toBe("number");
+    });
+
+    it("GET /api/silhouette/answer/:sessionId returns answer", async () => {
+      const start = await request(app)
+        .post("/api/silhouette/start")
+        .send({ guessLimit: null });
+      const res = await request(app).get(
+        `/api/silhouette/answer/${start.body.sessionId}`,
+      );
+      expect(res.status).toBe(200);
+      expect(res.body.name).toBeDefined();
+    });
+  });
+
+  describe("Timeline mode routes", () => {
+    it("POST /api/timeline/start creates a game", async () => {
+      const res = await request(app).post("/api/timeline/start").send({});
+      expect(res.status).toBe(200);
+      expect(res.body.sessionId).toBeDefined();
+      expect(res.body.currentEntity).toBeDefined();
+      expect(res.body.streak).toBe(0);
+    });
+
+    it("POST /api/timeline/guess works with higher", async () => {
+      const start = await request(app).post("/api/timeline/start").send({});
+      const res = await request(app)
+        .post("/api/timeline/guess")
+        .send({ sessionId: start.body.sessionId, guess: "higher" });
+      expect(res.status).toBe(200);
+      expect(typeof res.body.correct).toBe("boolean");
+      expect(res.body.correctAnswer).toMatch(/^(higher|lower|same)$/);
+    });
+
+    it("POST /api/timeline/guess returns 400 for invalid guess", async () => {
+      const start = await request(app).post("/api/timeline/start").send({});
+      const res = await request(app)
+        .post("/api/timeline/guess")
+        .send({ sessionId: start.body.sessionId, guess: "invalid" });
+      expect(res.status).toBe(400);
+    });
+  });
+
+  describe("Reverse crafting mode routes", () => {
+    it("POST /api/reverse-crafting/start creates a game", async () => {
+      const res = await request(app)
+        .post("/api/reverse-crafting/start")
+        .send({ guessLimit: null });
+      expect(res.status).toBe(200);
+      expect(res.body.sessionId).toBeDefined();
+      expect(res.body.outputItem).toBeDefined();
+      expect(res.body.availableIngredients).toBeDefined();
+    });
+
+    it("POST /api/reverse-crafting/guess works", async () => {
+      const start = await request(app)
+        .post("/api/reverse-crafting/start")
+        .send({ guessLimit: null });
+      const emptyGrid = [
+        [null, null, null],
+        [null, null, null],
+        [null, null, null],
+      ];
+      const res = await request(app)
+        .post("/api/reverse-crafting/guess")
+        .send({ sessionId: start.body.sessionId, guess: emptyGrid });
+      expect(res.status).toBe(200);
+      expect(typeof res.body.correct).toBe("boolean");
+      expect(typeof res.body.correctCount).toBe("number");
+    });
+
+    it("GET /api/reverse-crafting/answer/:sessionId returns answer", async () => {
+      const start = await request(app)
+        .post("/api/reverse-crafting/start")
+        .send({ guessLimit: null });
+      const res = await request(app).get(
+        `/api/reverse-crafting/answer/${start.body.sessionId}`,
+      );
+      expect(res.status).toBe(200);
+      expect(res.body.name).toBeDefined();
+    });
+  });
 });

@@ -1,20 +1,53 @@
 import { v4 as uuidv4 } from "uuid";
-import { GameSession, CraftingSession, TextureSession } from "../types";
+import {
+  GameSession,
+  CraftingSession,
+  TextureSession,
+  SilhouetteSession,
+  TimelineSession,
+  ReverseCraftingSession,
+} from "../types";
 
-const sessions = new Map<
-  string,
-  GameSession | CraftingSession | TextureSession
->();
+type AnySession =
+  | GameSession
+  | CraftingSession
+  | TextureSession
+  | SilhouetteSession
+  | TimelineSession
+  | ReverseCraftingSession;
+
+const sessions = new Map<string, AnySession>();
 
 // Auto-clean sessions older than 1 hour
 const SESSION_TTL = 60 * 60 * 1000;
+// Maximum number of concurrent sessions to prevent memory exhaustion
+const MAX_SESSIONS = 10000;
+
+/**
+ * Periodically prune expired sessions to prevent memory leaks.
+ */
+function pruneExpiredSessions(): void {
+  const now = Date.now();
+  for (const [id, session] of sessions) {
+    if (now - session.createdAt > SESSION_TTL) {
+      sessions.delete(id);
+    }
+  }
+}
+
+// Run cleanup every 10 minutes
+setInterval(pruneExpiredSessions, 10 * 60 * 1000).unref();
 
 export function createSession(
   mode: GameSession["mode"],
   targetId: string,
   guessLimit: number | null,
-  extra?: Partial<CraftingSession | TextureSession>,
+  extra?: Partial<AnySession>,
 ): string {
+  // Prevent unbounded session growth
+  if (sessions.size >= MAX_SESSIONS) {
+    pruneExpiredSessions();
+  }
   const id = uuidv4();
   const session: GameSession = {
     id,
@@ -30,9 +63,7 @@ export function createSession(
   return id;
 }
 
-export function getSession(
-  id: string,
-): GameSession | CraftingSession | TextureSession | undefined {
+export function getSession(id: string): AnySession | undefined {
   const session = sessions.get(id);
   if (session && Date.now() - session.createdAt > SESSION_TTL) {
     sessions.delete(id);

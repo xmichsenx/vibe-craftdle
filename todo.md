@@ -1,10 +1,10 @@
 ### Next updates:
 
-- remove hardcoded data, pull data from minecraft.wiki API at build time for newest stable version and use that data for the app
+1. Silhouette Mode
+   Show a blacked-out silhouette of a mob's render image. The player guesses which mob it is. On each wrong guess, gradually reduce the blackout opacity (e.g., 100% → 80% → 60% → reveal colors). Uses the mob textureUrl renders already fetched. Unique because it tests visual shape recognition rather than color/detail like Texture mode.
 
-- if data item (item, mob, every data "row") is missing a required property for a given game mode (e.g if there's no sound for the sound game mode), don't use that item in the game
+2. Timeline / "Higher or Lower" Mode
+   The player is shown an item/mob and must guess whether the next item was added in a higher or lower version number. A streak-based mode — how many can you get right in a row? Uses the versionAdded field which is on every entity but currently only shown as Classic feedback. Simple, addictive, and very different from the existing modes.
 
-### Separate ideas:
-
-1. Find out if a new interesting game mode can be added (or a couple of game modes)
-2. Make the whole app (game) fill more of the screen size as there's a lot of space below
+3. Reverse Crafting Mode
+   The player is shown the output item and must place/guess the ingredients in the correct grid positions. The inverse of Crafting Grid mode. On wrong placement, one correctly-placed ingredient locks in (progressive assist). Uses existing recipe data + ingredient icons.

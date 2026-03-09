@@ -4,6 +4,53 @@ All notable changes to the Craftdle project are documented in this file.
 
 ---
 
+## [1.0.1] - 2026-03-09
+
+### Fixed
+
+- **Data validation**: Added `wikiUrl` to required fields in entity validation. Entities missing wiki URLs are now excluded from all game modes.
+- **Silhouette visibility text overlap**: Moved the "Visibility: X%" indicator outside the image container so it no longer overlaps with the search bar on small screens.
+
+### Security
+
+- **Input validation hardened**: `guessLimit` is now sanitized (must be a positive integer ≤ 100, otherwise defaults to unlimited). Guess strings are type-checked and length-limited (200 chars). Session IDs are type-checked and length-limited (100 chars).
+- **Request body size limit**: Express JSON body parser now enforces a 1MB limit.
+- **Search query length limit**: Search input capped at 100 characters server-side.
+- **Session memory management**: Added periodic session cleanup (every 10 minutes) and a cap of 10,000 concurrent sessions to prevent memory exhaustion under load.
+
+---
+
+## [1.0.0] - 2026-03-09
+
+### Added
+
+- **Silhouette Mode**: New game mode where players identify a mob from its blacked-out silhouette. Each wrong guess reduces the blackout opacity (100% → 85% → 70% → 55% → 40% → fully revealed), testing visual shape recognition. Uses mob render images from the existing data.
+  - Backend: `silhouetteService.ts` with opacity-based progressive reveal.
+  - Frontend: `SilhouetteGame.tsx` + `SilhouetteView.tsx` with CSS mix-blend-mode silhouette effect.
+  - Routes: `POST /api/silhouette/start`, `POST /api/silhouette/guess`, `GET /api/silhouette/answer/:sessionId`.
+  - Mob-only search filtering (`mode=silhouette`).
+
+- **Timeline / Higher or Lower Mode**: Streak-based game mode where players see an entity and guess whether the next one was added in a higher or lower Minecraft version number. Game ends on the first wrong answer. Uses the `versionAdded` field present on all entities.
+  - Backend: `timelineService.ts` with version comparison, streak tracking, and best-streak persistence.
+  - Frontend: `TimelineGame.tsx` + `TimelineCard.tsx` with dedicated higher/lower UI (no autocomplete needed).
+  - Routes: `POST /api/timeline/start`, `POST /api/timeline/guess`, `GET /api/timeline/answer/:sessionId`.
+
+- **Reverse Crafting Mode**: The inverse of Crafting Grid — players see the output item and must place ingredients in the correct grid positions. On wrong placement, one correctly-placed ingredient locks in as progressive assist.
+  - Backend: `reverseCraftingService.ts` with grid comparison, progressive slot locking, and ingredient validation.
+  - Frontend: `ReverseCraftingGame.tsx` + `ReverseCraftingGrid.tsx` with interactive ingredient palette and click-to-place grid.
+  - Routes: `POST /api/reverse-crafting/start`, `POST /api/reverse-crafting/guess`, `GET /api/reverse-crafting/answer/:sessionId`.
+
+- **New tests**: 25 new server tests across 3 new service test files + route tests for all 3 new modes. Total: 177 tests (126 server + 51 client), all passing.
+- **Mob search endpoint**: `searchMobs()` in dataLoader for silhouette mode filtering.
+
+### Changed
+
+- **Session types expanded**: `GameSession.mode` union now includes `"silhouette" | "timeline" | "reverse-crafting"`. New session interfaces: `SilhouetteSession`, `TimelineSession`, `ReverseCraftingSession`.
+- **ModeSelector**: Now displays 7 game modes (was 4) in a responsive grid.
+- **App routing**: Added routes for `/silhouette`, `/timeline`, `/reverse-crafting`.
+
+---
+
 ## [0.5.0] - 2026-03-09
 
 ### Changed

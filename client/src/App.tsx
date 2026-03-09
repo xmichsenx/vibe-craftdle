@@ -7,6 +7,9 @@ import ClassicGame from "./components/classic/ClassicGame";
 import CraftingGame from "./components/crafting/CraftingGame";
 import TextureGame from "./components/texture/TextureGame";
 import SoundGame from "./components/sound/SoundGame";
+import SilhouetteGame from "./components/silhouette/SilhouetteGame";
+import TimelineGame from "./components/timeline/TimelineGame";
+import ReverseCraftingGame from "./components/reverseCrafting/ReverseCraftingGame";
 
 function HomePage() {
   return (
@@ -32,6 +35,9 @@ export default function App() {
             <Route path="/crafting" element={<CraftingGame />} />
             <Route path="/texture" element={<TextureGame />} />
             <Route path="/sound" element={<SoundGame />} />
+            <Route path="/silhouette" element={<SilhouetteGame />} />
+            <Route path="/timeline" element={<TimelineGame />} />
+            <Route path="/reverse-crafting" element={<ReverseCraftingGame />} />
           </Routes>
         </main>
         <Footer />
