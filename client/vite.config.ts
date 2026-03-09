@@ -5,7 +5,7 @@ import react from "@vitejs/plugin-react";
 // Use "/" for local development or custom domain
 export default defineConfig({
   plugins: [react()],
-  base: "/Craftdle/",
+  base: "/vibe-craftdle/",
   server: {
     port: 5173,
   },
