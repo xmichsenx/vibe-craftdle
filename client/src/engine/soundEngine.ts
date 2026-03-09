@@ -1,29 +1,30 @@
-import { getSounds, getMobs } from "../data/dataLoader";
+/**
+ * Client-side Sound mode engine.
+ */
+import { getSounds, getMobs } from "./dataStore";
 import {
   createSession,
   getSession,
   getGuessesRemaining,
-} from "./sessionService";
-import {
-  SoundEntry,
+} from "./sessionManager";
+import type {
   SoundStartResponse,
   SoundGuessResponse,
   AnswerResponse,
 } from "../types";
 
-function getRandomSound(): SoundEntry {
-  const sounds = getSounds();
-  return sounds[Math.floor(Math.random() * sounds.length)];
+function getRandomSound() {
+  const s = getSounds();
+  return s[Math.floor(Math.random() * s.length)];
 }
 
-function findSoundByEntityId(entityId: string): SoundEntry | undefined {
+function findSoundByEntityId(entityId: string) {
   return getSounds().find((s) => s.entityId === entityId);
 }
 
 export function startSoundGame(guessLimit: number | null): SoundStartResponse {
   const sound = getRandomSound();
   const sessionId = createSession("sound", sound.entityId, guessLimit);
-
   return {
     sessionId,
     guessLimit,
@@ -35,17 +36,17 @@ export function startSoundGame(guessLimit: number | null): SoundStartResponse {
 export function guessSound(
   sessionId: string,
   guessName: string,
-): SoundGuessResponse | { error: string } {
+): SoundGuessResponse {
   const session = getSession(sessionId);
-  if (!session) return { error: "Session not found" };
-  if (session.solved) return { error: "Game already completed" };
+  if (!session) throw new Error("Session not found");
+  if (session.solved) throw new Error("Game already completed");
 
   const remaining = getGuessesRemaining(session);
   if (remaining !== null && remaining <= 0)
-    return { error: "No guesses remaining" };
+    throw new Error("No guesses remaining");
 
   const targetSound = findSoundByEntityId(session.targetId);
-  if (!targetSound) return { error: "Sound not found" };
+  if (!targetSound) throw new Error("Sound not found");
 
   session.guesses.push(guessName);
 
@@ -58,18 +59,14 @@ export function guessSound(
   };
 }
 
-export function getSoundAnswer(
-  sessionId: string,
-): AnswerResponse | { error: string } {
+export function getSoundAnswer(sessionId: string): AnswerResponse {
   const session = getSession(sessionId);
-  if (!session) return { error: "Session not found" };
+  if (!session) throw new Error("Session not found");
 
   const targetSound = findSoundByEntityId(session.targetId);
-  if (!targetSound) return { error: "Sound not found" };
+  if (!targetSound) throw new Error("Sound not found");
 
   session.solved = true;
-
-  // Get mob info for texture
   const mob = getMobs().find((m) => m.id === targetSound.entityId);
 
   return {

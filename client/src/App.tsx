@@ -25,7 +25,7 @@ function HomePage() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Craftdle">
       <div className="flex flex-col min-h-screen">
         <Header />
         <main className="flex-1 px-4">

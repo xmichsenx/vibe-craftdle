@@ -1,9 +1,61 @@
 /**
  * Tests for client/src/services/api.ts
  *
- * Validates the thin HTTP wrapper: correct URL construction,
- * method / body, and error handling.
+ * Validates that each API function delegates to the correct
+ * client-side engine after ensuring data is loaded.
  */
+
+// ---------- mock all engine modules ----------
+jest.mock("../../client/src/engine/dataStore", () => ({
+  loadAllData: jest.fn().mockResolvedValue(undefined),
+  isDataLoaded: jest.fn().mockReturnValue(false),
+  searchEntities: jest.fn(),
+  searchCraftableItems: jest.fn(),
+  searchMobs: jest.fn(),
+}));
+
+jest.mock("../../client/src/engine/classicEngine", () => ({
+  startClassicGame: jest.fn(),
+  guessClassic: jest.fn(),
+  getClassicAnswer: jest.fn(),
+}));
+
+jest.mock("../../client/src/engine/craftingEngine", () => ({
+  startCraftingGame: jest.fn(),
+  guessCrafting: jest.fn(),
+  getCraftingAnswer: jest.fn(),
+}));
+
+jest.mock("../../client/src/engine/textureEngine", () => ({
+  startTextureGame: jest.fn(),
+  guessTexture: jest.fn(),
+  getTextureAnswer: jest.fn(),
+}));
+
+jest.mock("../../client/src/engine/soundEngine", () => ({
+  startSoundGame: jest.fn(),
+  guessSound: jest.fn(),
+  getSoundAnswer: jest.fn(),
+}));
+
+jest.mock("../../client/src/engine/silhouetteEngine", () => ({
+  startSilhouetteGame: jest.fn(),
+  guessSilhouette: jest.fn(),
+  getSilhouetteAnswer: jest.fn(),
+}));
+
+jest.mock("../../client/src/engine/timelineEngine", () => ({
+  startTimelineGame: jest.fn(),
+  guessTimeline: jest.fn(),
+  getTimelineAnswer: jest.fn(),
+}));
+
+jest.mock("../../client/src/engine/reverseCraftingEngine", () => ({
+  startReverseCraftingGame: jest.fn(),
+  guessReverseCrafting: jest.fn(),
+  getReverseCraftingAnswer: jest.fn(),
+}));
+
 import {
   searchItems,
   startClassic,
@@ -18,217 +70,255 @@ import {
   startSound,
   guessSound,
   getSoundAnswer,
+  startSilhouette,
+  guessSilhouette,
+  getSilhouetteAnswer,
+  startTimeline,
+  guessTimeline,
+  getTimelineAnswer,
+  startReverseCrafting,
+  guessReverseCrafting,
+  getReverseCraftingAnswer,
 } from "../../client/src/services/api";
 
-// ---------- fetch mock ----------
-const mockFetch = jest.fn();
-(globalThis as any).fetch = mockFetch;
+import {
+  loadAllData,
+  isDataLoaded,
+  searchEntities,
+  searchCraftableItems,
+  searchMobs,
+} from "../../client/src/engine/dataStore";
 
-function jsonOk(body: unknown) {
-  return Promise.resolve({
-    ok: true,
-    json: () => Promise.resolve(body),
-  } as Response);
-}
+import {
+  startClassicGame,
+  guessClassic as classicGuessEngine,
+  getClassicAnswer as classicAnswerEngine,
+} from "../../client/src/engine/classicEngine";
+import {
+  startCraftingGame,
+  guessCrafting as craftingGuessEngine,
+  getCraftingAnswer as craftingAnswerEngine,
+} from "../../client/src/engine/craftingEngine";
+import {
+  startTextureGame,
+  guessTexture as textureGuessEngine,
+  getTextureAnswer as textureAnswerEngine,
+} from "../../client/src/engine/textureEngine";
+import {
+  startSoundGame,
+  guessSound as soundGuessEngine,
+  getSoundAnswer as soundAnswerEngine,
+} from "../../client/src/engine/soundEngine";
+import {
+  startSilhouetteGame,
+  guessSilhouette as silhouetteGuessEngine,
+  getSilhouetteAnswer as silhouetteAnswerEngine,
+} from "../../client/src/engine/silhouetteEngine";
+import {
+  startTimelineGame,
+  guessTimeline as timelineGuessEngine,
+  getTimelineAnswer as timelineAnswerEngine,
+} from "../../client/src/engine/timelineEngine";
+import {
+  startReverseCraftingGame,
+  guessReverseCrafting as reverseCraftingGuessEngine,
+  getReverseCraftingAnswer as reverseCraftingAnswerEngine,
+} from "../../client/src/engine/reverseCraftingEngine";
 
-function jsonErr(status: number, body: { error: string }) {
-  return Promise.resolve({
-    ok: false,
-    status,
-    json: () => Promise.resolve(body),
-  } as Response);
-}
-
-beforeEach(() => mockFetch.mockReset());
+beforeEach(() => {
+  jest.clearAllMocks();
+  (isDataLoaded as jest.Mock).mockReturnValue(false);
+});
 
 // ----- search -----
 describe("searchItems", () => {
-  it("calls /api/items/search with encoded query", async () => {
-    mockFetch.mockReturnValue(jsonOk([{ id: "1", name: "Stone" }]));
-    const result = await searchItems("sto ne");
-    expect(mockFetch).toHaveBeenCalledWith(
-      "/api/items/search?q=sto%20ne",
-      expect.objectContaining({
-        headers: { "Content-Type": "application/json" },
-      }),
-    );
-    expect(result).toEqual([{ id: "1", name: "Stone" }]);
+  it("loads data and calls searchEntities for default mode", async () => {
+    const results = [{ id: "1", name: "Stone", textureUrl: "", type: "block" }];
+    (searchEntities as jest.Mock).mockReturnValue(results);
+    const res = await searchItems("stone");
+    expect(loadAllData).toHaveBeenCalled();
+    expect(searchEntities).toHaveBeenCalledWith("stone", 10);
+    expect(res).toEqual(results);
   });
 
-  it("appends mode parameter when provided", async () => {
-    mockFetch.mockReturnValue(jsonOk([{ id: "2", name: "Sword" }]));
-    const result = await searchItems("sword", "crafting");
-    expect(mockFetch).toHaveBeenCalledWith(
-      "/api/items/search?q=sword&mode=crafting",
-      expect.objectContaining({
-        headers: { "Content-Type": "application/json" },
-      }),
-    );
-    expect(result).toEqual([{ id: "2", name: "Sword" }]);
+  it("calls searchCraftableItems when mode is crafting", async () => {
+    (searchCraftableItems as jest.Mock).mockReturnValue([]);
+    await searchItems("sword", "crafting");
+    expect(searchCraftableItems).toHaveBeenCalledWith("sword", 10);
+  });
+
+  it("calls searchMobs when mode is silhouette", async () => {
+    (searchMobs as jest.Mock).mockReturnValue([]);
+    await searchItems("creeper", "silhouette");
+    expect(searchMobs).toHaveBeenCalledWith("creeper", 10);
+  });
+
+  it("skips loadAllData when data is already loaded", async () => {
+    (isDataLoaded as jest.Mock).mockReturnValue(true);
+    (searchEntities as jest.Mock).mockReturnValue([]);
+    await searchItems("stone");
+    expect(loadAllData).not.toHaveBeenCalled();
   });
 });
 
 // ----- classic -----
-describe("classic API", () => {
-  it("startClassic POSTs with guessLimit", async () => {
-    const body = { sessionId: "s1", guessesRemaining: 10 };
-    mockFetch.mockReturnValue(jsonOk(body));
+describe("classic", () => {
+  it("startClassic delegates to startClassicGame", async () => {
+    const response = { sessionId: "s1", guessesRemaining: 10 };
+    (startClassicGame as jest.Mock).mockReturnValue(response);
     const res = await startClassic(10);
-    expect(mockFetch).toHaveBeenCalledWith(
-      "/api/classic/start",
-      expect.objectContaining({
-        method: "POST",
-        body: JSON.stringify({ guessLimit: 10 }),
-      }),
-    );
-    expect(res.sessionId).toBe("s1");
+    expect(startClassicGame).toHaveBeenCalledWith(10);
+    expect(res).toEqual(response);
   });
 
-  it("guessClassic POSTs sessionId and guess", async () => {
-    const body = { correct: false, guessesRemaining: 9 };
-    mockFetch.mockReturnValue(jsonOk(body));
+  it("guessClassic delegates to classicGuessEngine", async () => {
+    const response = { correct: false, guessesRemaining: 9 };
+    (classicGuessEngine as jest.Mock).mockReturnValue(response);
     const res = await guessClassic("s1", "Dirt");
-    expect(mockFetch).toHaveBeenCalledWith(
-      "/api/classic/guess",
-      expect.objectContaining({
-        method: "POST",
-        body: JSON.stringify({ sessionId: "s1", guess: "Dirt" }),
-      }),
-    );
+    expect(classicGuessEngine).toHaveBeenCalledWith("s1", "Dirt");
     expect(res.correct).toBe(false);
   });
 
-  it("getClassicAnswer fetches answer by sessionId", async () => {
-    const body = { id: "1", name: "Stone", textureUrl: "", wikiUrl: "" };
-    mockFetch.mockReturnValue(jsonOk(body));
+  it("getClassicAnswer delegates to classicAnswerEngine", async () => {
+    const response = { id: "1", name: "Stone", textureUrl: "", wikiUrl: "" };
+    (classicAnswerEngine as jest.Mock).mockReturnValue(response);
     const res = await getClassicAnswer("s1");
-    expect(mockFetch).toHaveBeenCalledWith(
-      "/api/classic/answer/s1",
-      expect.objectContaining({
-        headers: { "Content-Type": "application/json" },
-      }),
-    );
+    expect(classicAnswerEngine).toHaveBeenCalledWith("s1");
     expect(res.name).toBe("Stone");
   });
 });
 
 // ----- crafting -----
-describe("crafting API", () => {
-  it("startCrafting POSTs", async () => {
-    mockFetch.mockReturnValue(jsonOk({ sessionId: "c1" }));
-    await startCrafting(null);
-    expect(mockFetch).toHaveBeenCalledWith(
-      "/api/crafting/start",
-      expect.objectContaining({
-        method: "POST",
-        body: JSON.stringify({ guessLimit: null }),
-      }),
-    );
+describe("crafting", () => {
+  it("startCrafting delegates to startCraftingGame", async () => {
+    const response = { sessionId: "c1" };
+    (startCraftingGame as jest.Mock).mockReturnValue(response);
+    const res = await startCrafting(null);
+    expect(startCraftingGame).toHaveBeenCalledWith(null);
+    expect(res).toEqual(response);
   });
 
-  it("guessCrafting POSTs", async () => {
-    mockFetch.mockReturnValue(jsonOk({ correct: true }));
+  it("guessCrafting delegates to craftingGuessEngine", async () => {
+    (craftingGuessEngine as jest.Mock).mockReturnValue({ correct: true });
     await guessCrafting("c1", "Sword");
-    expect(mockFetch).toHaveBeenCalledWith(
-      "/api/crafting/guess",
-      expect.objectContaining({ method: "POST" }),
-    );
+    expect(craftingGuessEngine).toHaveBeenCalledWith("c1", "Sword");
   });
 
-  it("getCraftingAnswer fetches", async () => {
-    mockFetch.mockReturnValue(jsonOk({ name: "Sword" }));
+  it("getCraftingAnswer delegates to craftingAnswerEngine", async () => {
+    (craftingAnswerEngine as jest.Mock).mockReturnValue({ name: "Sword" });
     await getCraftingAnswer("c1");
-    expect(mockFetch).toHaveBeenCalledWith(
-      "/api/crafting/answer/c1",
-      expect.anything(),
-    );
+    expect(craftingAnswerEngine).toHaveBeenCalledWith("c1");
   });
 });
 
 // ----- texture -----
-describe("texture API", () => {
-  it("startTexture POSTs", async () => {
-    mockFetch.mockReturnValue(jsonOk({ sessionId: "t1" }));
+describe("texture", () => {
+  it("startTexture delegates to startTextureGame", async () => {
+    (startTextureGame as jest.Mock).mockReturnValue({ sessionId: "t1" });
     await startTexture(5);
-    expect(mockFetch).toHaveBeenCalledWith(
-      "/api/texture/start",
-      expect.objectContaining({ method: "POST" }),
-    );
+    expect(startTextureGame).toHaveBeenCalledWith(5);
   });
 
-  it("guessTexture POSTs", async () => {
-    mockFetch.mockReturnValue(jsonOk({ correct: false }));
+  it("guessTexture delegates to textureGuessEngine", async () => {
+    (textureGuessEngine as jest.Mock).mockReturnValue({ correct: false });
     await guessTexture("t1", "Grass");
-    expect(mockFetch).toHaveBeenCalledWith(
-      "/api/texture/guess",
-      expect.objectContaining({ method: "POST" }),
-    );
+    expect(textureGuessEngine).toHaveBeenCalledWith("t1", "Grass");
   });
 
-  it("getTextureAnswer fetches", async () => {
-    mockFetch.mockReturnValue(jsonOk({ name: "Grass" }));
+  it("getTextureAnswer delegates to textureAnswerEngine", async () => {
+    (textureAnswerEngine as jest.Mock).mockReturnValue({ name: "Grass" });
     await getTextureAnswer("t1");
-    expect(mockFetch).toHaveBeenCalledWith(
-      "/api/texture/answer/t1",
-      expect.anything(),
-    );
+    expect(textureAnswerEngine).toHaveBeenCalledWith("t1");
   });
 });
 
 // ----- sound -----
-describe("sound API", () => {
-  it("startSound POSTs", async () => {
-    mockFetch.mockReturnValue(jsonOk({ sessionId: "snd1" }));
+describe("sound", () => {
+  it("startSound delegates to startSoundGame", async () => {
+    (startSoundGame as jest.Mock).mockReturnValue({ sessionId: "snd1" });
     await startSound(null);
-    expect(mockFetch).toHaveBeenCalledWith(
-      "/api/sound/start",
-      expect.objectContaining({ method: "POST" }),
-    );
+    expect(startSoundGame).toHaveBeenCalledWith(null);
   });
 
-  it("guessSound POSTs", async () => {
-    mockFetch.mockReturnValue(jsonOk({ correct: false }));
+  it("guessSound delegates to soundGuessEngine", async () => {
+    (soundGuessEngine as jest.Mock).mockReturnValue({ correct: false });
     await guessSound("snd1", "Creeper");
-    expect(mockFetch).toHaveBeenCalledWith(
-      "/api/sound/guess",
-      expect.objectContaining({ method: "POST" }),
-    );
+    expect(soundGuessEngine).toHaveBeenCalledWith("snd1", "Creeper");
   });
 
-  it("getSoundAnswer fetches", async () => {
-    mockFetch.mockReturnValue(jsonOk({ name: "Creeper" }));
+  it("getSoundAnswer delegates to soundAnswerEngine", async () => {
+    (soundAnswerEngine as jest.Mock).mockReturnValue({ name: "Creeper" });
     await getSoundAnswer("snd1");
-    expect(mockFetch).toHaveBeenCalledWith(
-      "/api/sound/answer/snd1",
-      expect.anything(),
-    );
+    expect(soundAnswerEngine).toHaveBeenCalledWith("snd1");
   });
 });
 
-// ----- error handling -----
-describe("error handling", () => {
-  it("throws an error with message from JSON body", async () => {
-    mockFetch.mockReturnValue(jsonErr(400, { error: "Bad guess" }));
-    await expect(guessClassic("s1", "x")).rejects.toThrow("Bad guess");
+// ----- silhouette -----
+describe("silhouette", () => {
+  it("startSilhouette delegates to startSilhouetteGame", async () => {
+    (startSilhouetteGame as jest.Mock).mockReturnValue({ sessionId: "sil1" });
+    await startSilhouette(null);
+    expect(startSilhouetteGame).toHaveBeenCalledWith(null);
   });
 
-  it("throws generic message when JSON body has no error field", async () => {
-    mockFetch.mockReturnValue(
-      Promise.resolve({
-        ok: false,
-        json: () => Promise.resolve({}),
-      } as Response),
-    );
-    await expect(startClassic(null)).rejects.toThrow("Request failed");
+  it("guessSilhouette delegates to silhouetteGuessEngine", async () => {
+    (silhouetteGuessEngine as jest.Mock).mockReturnValue({ correct: false });
+    await guessSilhouette("sil1", "Zombie");
+    expect(silhouetteGuessEngine).toHaveBeenCalledWith("sil1", "Zombie");
   });
 
-  it("throws generic message when response body is not JSON", async () => {
-    mockFetch.mockReturnValue(
-      Promise.resolve({
-        ok: false,
-        json: () => Promise.reject(new Error("parse")),
-      } as Response),
-    );
-    await expect(startClassic(null)).rejects.toThrow("Request failed");
+  it("getSilhouetteAnswer delegates to silhouetteAnswerEngine", async () => {
+    (silhouetteAnswerEngine as jest.Mock).mockReturnValue({ name: "Zombie" });
+    await getSilhouetteAnswer("sil1");
+    expect(silhouetteAnswerEngine).toHaveBeenCalledWith("sil1");
+  });
+});
+
+// ----- timeline -----
+describe("timeline", () => {
+  it("startTimeline delegates to startTimelineGame", async () => {
+    (startTimelineGame as jest.Mock).mockReturnValue({ sessionId: "tl1" });
+    await startTimeline();
+    expect(startTimelineGame).toHaveBeenCalled();
+  });
+
+  it("guessTimeline delegates to timelineGuessEngine", async () => {
+    (timelineGuessEngine as jest.Mock).mockReturnValue({ correct: false });
+    await guessTimeline("tl1", "higher");
+    expect(timelineGuessEngine).toHaveBeenCalledWith("tl1", "higher");
+  });
+
+  it("getTimelineAnswer delegates to timelineAnswerEngine", async () => {
+    (timelineAnswerEngine as jest.Mock).mockReturnValue({ name: "Creeper" });
+    await getTimelineAnswer("tl1");
+    expect(timelineAnswerEngine).toHaveBeenCalledWith("tl1");
+  });
+});
+
+// ----- reverse crafting -----
+describe("reverse crafting", () => {
+  it("startReverseCrafting delegates to startReverseCraftingGame", async () => {
+    (startReverseCraftingGame as jest.Mock).mockReturnValue({
+      sessionId: "rc1",
+    });
+    await startReverseCrafting(null);
+    expect(startReverseCraftingGame).toHaveBeenCalledWith(null);
+  });
+
+  it("guessReverseCrafting delegates to reverseCraftingGuessEngine", async () => {
+    const grid = [[null, "diamond", null]];
+    (reverseCraftingGuessEngine as jest.Mock).mockReturnValue({
+      correct: false,
+    });
+    await guessReverseCrafting("rc1", grid);
+    expect(reverseCraftingGuessEngine).toHaveBeenCalledWith("rc1", grid);
+  });
+
+  it("getReverseCraftingAnswer delegates to reverseCraftingAnswerEngine", async () => {
+    (reverseCraftingAnswerEngine as jest.Mock).mockReturnValue({
+      name: "Sword",
+    });
+    await getReverseCraftingAnswer("rc1");
+    expect(reverseCraftingAnswerEngine).toHaveBeenCalledWith("rc1");
   });
 });

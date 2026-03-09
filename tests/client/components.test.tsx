@@ -53,6 +53,11 @@ jest.mock("react-router-dom", () => ({
 // Mock canvas-confetti so it doesn't error in JSDOM
 jest.mock("canvas-confetti", () => jest.fn());
 
+// Mock the api module to avoid import.meta.env in engine/dataStore
+jest.mock("../../client/src/services/api", () => ({
+  searchItems: jest.fn().mockResolvedValue([]),
+}));
+
 import GameLayout from "../../client/src/components/common/GameLayout";
 import { GameState, GameActions } from "../../client/src/hooks/useGame";
 

@@ -1,18 +1,15 @@
-import { getClassicEntities } from "../data/dataLoader";
-import { createSession, getSession, updateSession } from "./sessionService";
-import {
-  ClassicEntity,
-  TimelineSession,
+/**
+ * Client-side Timeline mode engine.
+ */
+import { getClassicEntities, ClassicEntity } from "./dataStore";
+import { createSession, getSession } from "./sessionManager";
+import type {
   TimelineStartResponse,
   TimelineGuessResponse,
   AnswerResponse,
 } from "../types";
 
-/**
- * Compare two version strings (e.g. "1.0", "1.19.3").
- * Returns negative if a < b, positive if a > b, 0 if equal.
- */
-export function compareVersions(a: string, b: string): number {
+function compareVersions(a: string, b: string): number {
   const pa = a.split(".").map(Number);
   const pb = b.split(".").map(Number);
   const len = Math.max(pa.length, pb.length);
@@ -47,10 +44,6 @@ function entityInfo(entity: ClassicEntity) {
   };
 }
 
-/**
- * Start a new timeline game round.
- * Shows an entity and prepares a next entity for comparison.
- */
 export function startTimelineGame(): TimelineStartResponse {
   const current = getRandomEntity();
   const next = getRandomEntityExcluding(current.id);
@@ -61,7 +54,7 @@ export function startTimelineGame(): TimelineStartResponse {
     streak: 0,
     bestStreak: 0,
     lastResult: null,
-  } as Partial<TimelineSession>);
+  });
 
   return {
     sessionId,
@@ -76,25 +69,21 @@ export function startTimelineGame(): TimelineStartResponse {
   };
 }
 
-/**
- * Process a timeline guess ("higher" or "lower").
- * The player guesses whether the next entity's versionAdded is higher or lower.
- */
 export function guessTimeline(
   sessionId: string,
   guess: string,
-): TimelineGuessResponse | { error: string } {
-  const session = getSession(sessionId) as TimelineSession | undefined;
-  if (!session) return { error: "Session not found" };
-  if (session.solved) return { error: "Game already completed" };
+): TimelineGuessResponse {
+  const session = getSession(sessionId);
+  if (!session) throw new Error("Session not found");
+  if (session.solved) throw new Error("Game already completed");
 
   if (guess !== "higher" && guess !== "lower") {
-    return { error: "Guess must be 'higher' or 'lower'" };
+    throw new Error("Guess must be 'higher' or 'lower'");
   }
 
-  const currentEntity = findEntityById(session.currentEntityId);
-  const nextEntity = findEntityById(session.nextEntityId);
-  if (!currentEntity || !nextEntity) return { error: "Entity not found" };
+  const currentEntity = findEntityById(session.currentEntityId as string);
+  const nextEntity = findEntityById(session.nextEntityId as string);
+  if (!currentEntity || !nextEntity) throw new Error("Entity not found");
 
   const cmp = compareVersions(
     nextEntity.versionAdded,
@@ -106,65 +95,58 @@ export function guessTimeline(
   else if (cmp < 0) correctAnswer = "lower";
   else correctAnswer = "same";
 
-  // "same" counts as correct for either guess
   const correct = correctAnswer === "same" || guess === correctAnswer;
 
   session.guesses.push(guess);
 
   if (correct) {
-    session.streak += 1;
-    if (session.streak > session.bestStreak) {
+    session.streak = ((session.streak as number) || 0) + 1;
+    if ((session.streak as number) > ((session.bestStreak as number) || 0)) {
       session.bestStreak = session.streak;
     }
 
-    // Advance: the next entity becomes the current, pick a new next
     session.currentEntityId = session.nextEntityId;
-    const newNext = getRandomEntityExcluding(session.currentEntityId);
+    const newNext = getRandomEntityExcluding(session.currentEntityId as string);
     session.nextEntityId = newNext.id;
 
     return {
       correct: true,
       correctAnswer,
       previousEntity: entityInfo(currentEntity),
-      nextEntity: entityInfo(findEntityById(session.currentEntityId)!),
+      nextEntity: entityInfo(
+        findEntityById(session.currentEntityId as string)!,
+      ),
       upcomingEntity: {
         id: newNext.id,
         name: newNext.name,
         textureUrl: newNext.textureUrl,
       },
-      streak: session.streak,
-      bestStreak: session.bestStreak,
+      streak: session.streak as number,
+      bestStreak: session.bestStreak as number,
       gameOver: false,
     };
   } else {
-    // Wrong — game over
     session.solved = true;
     return {
       correct: false,
       correctAnswer,
       previousEntity: entityInfo(currentEntity),
       nextEntity: entityInfo(nextEntity),
-      streak: session.streak,
-      bestStreak: session.bestStreak,
+      streak: session.streak as number,
+      bestStreak: session.bestStreak as number,
       gameOver: true,
     };
   }
 }
 
-/**
- * Reveal the answer (returns the current target entity info).
- */
-export function getTimelineAnswer(
-  sessionId: string,
-): AnswerResponse | { error: string } {
-  const session = getSession(sessionId) as TimelineSession | undefined;
-  if (!session) return { error: "Session not found" };
+export function getTimelineAnswer(sessionId: string): AnswerResponse {
+  const session = getSession(sessionId);
+  if (!session) throw new Error("Session not found");
 
-  const entity = findEntityById(session.nextEntityId);
-  if (!entity) return { error: "Entity not found" };
+  const entity = findEntityById(session.nextEntityId as string);
+  if (!entity) throw new Error("Entity not found");
 
   session.solved = true;
-
   return {
     id: entity.id,
     name: entity.name,

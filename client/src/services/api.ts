@@ -1,3 +1,7 @@
+/**
+ * Client-side API layer — all game logic runs locally in the browser.
+ * No backend server required; data is loaded from static JSON files.
+ */
 import {
   SearchResult,
   ClassicStartResponse,
@@ -16,196 +20,208 @@ import {
   ReverseCraftingGuessResponse,
   AnswerResponse,
 } from "../types";
+import {
+  loadAllData,
+  isDataLoaded,
+  searchEntities,
+  searchCraftableItems,
+  searchMobs,
+} from "../engine/dataStore";
+import {
+  startClassicGame,
+  guessClassic as classicGuess,
+  getClassicAnswer as classicAnswer,
+} from "../engine/classicEngine";
+import {
+  startCraftingGame,
+  guessCrafting as craftingGuess,
+  getCraftingAnswer as craftingAnswer,
+} from "../engine/craftingEngine";
+import {
+  startTextureGame,
+  guessTexture as textureGuess,
+  getTextureAnswer as textureAnswer,
+} from "../engine/textureEngine";
+import {
+  startSoundGame,
+  guessSound as soundGuess,
+  getSoundAnswer as soundAnswer,
+} from "../engine/soundEngine";
+import {
+  startSilhouetteGame,
+  guessSilhouette as silhouetteGuess,
+  getSilhouetteAnswer as silhouetteAnswer,
+} from "../engine/silhouetteEngine";
+import {
+  startTimelineGame,
+  guessTimeline as timelineGuess,
+  getTimelineAnswer as timelineAnswer,
+} from "../engine/timelineEngine";
+import {
+  startReverseCraftingGame,
+  guessReverseCrafting as reverseCraftingGuess,
+  getReverseCraftingAnswer as reverseCraftingAnswer,
+} from "../engine/reverseCraftingEngine";
 
-const BASE = "/api";
-
-async function request<T>(url: string, options?: RequestInit): Promise<T> {
-  const res = await fetch(`${BASE}${url}`, {
-    headers: { "Content-Type": "application/json" },
-    ...options,
-  });
-  if (!res.ok) {
-    const err = await res.json().catch(() => ({ error: "Request failed" }));
-    throw new Error(err.error || "Request failed");
+/** Ensure game data is loaded before any operation. */
+async function ensureData(): Promise<void> {
+  if (!isDataLoaded()) {
+    await loadAllData();
   }
-  return res.json();
 }
 
 // Search
-export function searchItems(
+export async function searchItems(
   query: string,
   mode?: string,
 ): Promise<SearchResult[]> {
-  let url = `/items/search?q=${encodeURIComponent(query)}`;
-  if (mode) url += `&mode=${encodeURIComponent(mode)}`;
-  return request<SearchResult[]>(url);
+  await ensureData();
+  if (mode === "crafting") return searchCraftableItems(query, 10);
+  if (mode === "silhouette") return searchMobs(query, 10);
+  return searchEntities(query, 10);
 }
 
 // Classic
-export function startClassic(
+export async function startClassic(
   guessLimit: number | null,
 ): Promise<ClassicStartResponse> {
-  return request<ClassicStartResponse>("/classic/start", {
-    method: "POST",
-    body: JSON.stringify({ guessLimit }),
-  });
+  await ensureData();
+  return startClassicGame(guessLimit);
 }
 
-export function guessClassic(
+export async function guessClassic(
   sessionId: string,
   guess: string,
 ): Promise<ClassicGuessResponse> {
-  return request<ClassicGuessResponse>("/classic/guess", {
-    method: "POST",
-    body: JSON.stringify({ sessionId, guess }),
-  });
+  return classicGuess(sessionId, guess);
 }
 
-export function getClassicAnswer(sessionId: string): Promise<AnswerResponse> {
-  return request<AnswerResponse>(`/classic/answer/${sessionId}`);
+export async function getClassicAnswer(
+  sessionId: string,
+): Promise<AnswerResponse> {
+  return classicAnswer(sessionId);
 }
 
 // Crafting
-export function startCrafting(
+export async function startCrafting(
   guessLimit: number | null,
 ): Promise<CraftingStartResponse> {
-  return request<CraftingStartResponse>("/crafting/start", {
-    method: "POST",
-    body: JSON.stringify({ guessLimit }),
-  });
+  await ensureData();
+  return startCraftingGame(guessLimit);
 }
 
-export function guessCrafting(
+export async function guessCrafting(
   sessionId: string,
   guess: string,
 ): Promise<CraftingGuessResponse> {
-  return request<CraftingGuessResponse>("/crafting/guess", {
-    method: "POST",
-    body: JSON.stringify({ sessionId, guess }),
-  });
+  return craftingGuess(sessionId, guess);
 }
 
-export function getCraftingAnswer(sessionId: string): Promise<AnswerResponse> {
-  return request<AnswerResponse>(`/crafting/answer/${sessionId}`);
+export async function getCraftingAnswer(
+  sessionId: string,
+): Promise<AnswerResponse> {
+  return craftingAnswer(sessionId);
 }
 
 // Texture
-export function startTexture(
+export async function startTexture(
   guessLimit: number | null,
 ): Promise<TextureStartResponse> {
-  return request<TextureStartResponse>("/texture/start", {
-    method: "POST",
-    body: JSON.stringify({ guessLimit }),
-  });
+  await ensureData();
+  return startTextureGame(guessLimit);
 }
 
-export function guessTexture(
+export async function guessTexture(
   sessionId: string,
   guess: string,
 ): Promise<TextureGuessResponse> {
-  return request<TextureGuessResponse>("/texture/guess", {
-    method: "POST",
-    body: JSON.stringify({ sessionId, guess }),
-  });
+  return textureGuess(sessionId, guess);
 }
 
-export function getTextureAnswer(sessionId: string): Promise<AnswerResponse> {
-  return request<AnswerResponse>(`/texture/answer/${sessionId}`);
+export async function getTextureAnswer(
+  sessionId: string,
+): Promise<AnswerResponse> {
+  return textureAnswer(sessionId);
 }
 
 // Sound
-export function startSound(
+export async function startSound(
   guessLimit: number | null,
 ): Promise<SoundStartResponse> {
-  return request<SoundStartResponse>("/sound/start", {
-    method: "POST",
-    body: JSON.stringify({ guessLimit }),
-  });
+  await ensureData();
+  return startSoundGame(guessLimit);
 }
 
-export function guessSound(
+export async function guessSound(
   sessionId: string,
   guess: string,
 ): Promise<SoundGuessResponse> {
-  return request<SoundGuessResponse>("/sound/guess", {
-    method: "POST",
-    body: JSON.stringify({ sessionId, guess }),
-  });
+  return soundGuess(sessionId, guess);
 }
 
-export function getSoundAnswer(sessionId: string): Promise<AnswerResponse> {
-  return request<AnswerResponse>(`/sound/answer/${sessionId}`);
+export async function getSoundAnswer(
+  sessionId: string,
+): Promise<AnswerResponse> {
+  return soundAnswer(sessionId);
 }
 
 // Silhouette
-export function startSilhouette(
+export async function startSilhouette(
   guessLimit: number | null,
 ): Promise<SilhouetteStartResponse> {
-  return request<SilhouetteStartResponse>("/silhouette/start", {
-    method: "POST",
-    body: JSON.stringify({ guessLimit }),
-  });
+  await ensureData();
+  return startSilhouetteGame(guessLimit);
 }
 
-export function guessSilhouette(
+export async function guessSilhouette(
   sessionId: string,
   guess: string,
 ): Promise<SilhouetteGuessResponse> {
-  return request<SilhouetteGuessResponse>("/silhouette/guess", {
-    method: "POST",
-    body: JSON.stringify({ sessionId, guess }),
-  });
+  return silhouetteGuess(sessionId, guess);
 }
 
-export function getSilhouetteAnswer(
+export async function getSilhouetteAnswer(
   sessionId: string,
 ): Promise<AnswerResponse> {
-  return request<AnswerResponse>(`/silhouette/answer/${sessionId}`);
+  return silhouetteAnswer(sessionId);
 }
 
 // Timeline
-export function startTimeline(): Promise<TimelineStartResponse> {
-  return request<TimelineStartResponse>("/timeline/start", {
-    method: "POST",
-  });
+export async function startTimeline(): Promise<TimelineStartResponse> {
+  await ensureData();
+  return startTimelineGame();
 }
 
-export function guessTimeline(
+export async function guessTimeline(
   sessionId: string,
   guess: string,
 ): Promise<TimelineGuessResponse> {
-  return request<TimelineGuessResponse>("/timeline/guess", {
-    method: "POST",
-    body: JSON.stringify({ sessionId, guess }),
-  });
+  return timelineGuess(sessionId, guess);
 }
 
-export function getTimelineAnswer(sessionId: string): Promise<AnswerResponse> {
-  return request<AnswerResponse>(`/timeline/answer/${sessionId}`);
+export async function getTimelineAnswer(
+  sessionId: string,
+): Promise<AnswerResponse> {
+  return timelineAnswer(sessionId);
 }
 
 // Reverse Crafting
-export function startReverseCrafting(
+export async function startReverseCrafting(
   guessLimit: number | null,
 ): Promise<ReverseCraftingStartResponse> {
-  return request<ReverseCraftingStartResponse>("/reverse-crafting/start", {
-    method: "POST",
-    body: JSON.stringify({ guessLimit }),
-  });
+  await ensureData();
+  return startReverseCraftingGame(guessLimit);
 }
 
-export function guessReverseCrafting(
+export async function guessReverseCrafting(
   sessionId: string,
   guess: (string | null)[][],
 ): Promise<ReverseCraftingGuessResponse> {
-  return request<ReverseCraftingGuessResponse>("/reverse-crafting/guess", {
-    method: "POST",
-    body: JSON.stringify({ sessionId, guess }),
-  });
+  return reverseCraftingGuess(sessionId, guess);
 }
 
-export function getReverseCraftingAnswer(
+export async function getReverseCraftingAnswer(
   sessionId: string,
 ): Promise<AnswerResponse> {
-  return request<AnswerResponse>(`/reverse-crafting/answer/${sessionId}`);
+  return reverseCraftingAnswer(sessionId);
 }

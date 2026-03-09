@@ -1,20 +1,26 @@
-import { getRecipes, getIngredientIcons, getItems } from "../data/dataLoader";
+/**
+ * Client-side Crafting mode engine.
+ */
+import {
+  getRecipes,
+  getIngredientIcons,
+  getItems,
+  CraftingRecipe,
+} from "./dataStore";
 import {
   createSession,
   getSession,
   getGuessesRemaining,
-} from "./sessionService";
-import {
-  CraftingRecipe,
-  CraftingSession,
+} from "./sessionManager";
+import type {
   CraftingStartResponse,
   CraftingGuessResponse,
   AnswerResponse,
 } from "../types";
 
 function getRandomRecipe(): CraftingRecipe {
-  const recipes = getRecipes();
-  return recipes[Math.floor(Math.random() * recipes.length)];
+  const r = getRecipes();
+  return r[Math.floor(Math.random() * r.length)];
 }
 
 function findRecipeById(itemId: string): CraftingRecipe | undefined {
@@ -34,13 +40,11 @@ function buildVisibleGrid(
     [null, null, null],
     [null, null, null],
   ];
-
   for (const slotIndex of revealedSlots) {
     const row = Math.floor(slotIndex / 3);
     const col = slotIndex % 3;
-    grid[row][col] = recipe.grid[row][col]; // could be an ingredient or null (empty)
+    grid[row][col] = recipe.grid[row][col];
   }
-
   return grid;
 }
 
@@ -48,13 +52,10 @@ function getNextSlotToReveal(
   recipe: CraftingRecipe,
   revealedSlots: number[],
 ): number | null {
-  // Prefer revealing slots that have ingredients first
   const allSlots = [0, 1, 2, 3, 4, 5, 6, 7, 8];
   const hidden = allSlots.filter((s) => !revealedSlots.includes(s));
-
   if (hidden.length === 0) return null;
 
-  // Prioritize slots with ingredients
   const withIngredients = hidden.filter((s) => {
     const row = Math.floor(s / 3);
     const col = s % 3;
@@ -85,11 +86,10 @@ export function startCraftingGame(
 ): CraftingStartResponse {
   const recipe = getRandomRecipe();
   const sessionId = createSession("crafting", recipe.itemId, guessLimit, {
-    revealedSlots: [],
-  } as Partial<CraftingSession>);
+    revealedSlots: [] as number[],
+  });
 
   const grid = buildVisibleGrid(recipe, []);
-
   return {
     sessionId,
     guessLimit,
@@ -103,63 +103,61 @@ export function startCraftingGame(
 export function guessCrafting(
   sessionId: string,
   guessName: string,
-): CraftingGuessResponse | { error: string } {
-  const session = getSession(sessionId) as CraftingSession | undefined;
-  if (!session) return { error: "Session not found" };
-  if (session.solved) return { error: "Game already completed" };
+): CraftingGuessResponse {
+  const session = getSession(sessionId);
+  if (!session) throw new Error("Session not found");
+  if (session.solved) throw new Error("Game already completed");
 
   const remaining = getGuessesRemaining(session);
   if (remaining !== null && remaining <= 0)
-    return { error: "No guesses remaining" };
+    throw new Error("No guesses remaining");
 
   const recipe = findRecipeById(session.targetId);
-  if (!recipe) return { error: "Recipe not found" };
+  if (!recipe) throw new Error("Recipe not found");
 
   const guessRecipe = findRecipeByName(guessName);
   session.guesses.push(guessName);
 
+  const revealedSlots = (session.revealedSlots as number[]) || [];
   const correct = guessRecipe?.itemId === recipe.itemId;
+
   if (correct) {
     session.solved = true;
-    // Reveal all slots
     session.revealedSlots = [0, 1, 2, 3, 4, 5, 6, 7, 8];
   } else {
-    // Reveal one more slot
-    const nextSlot = getNextSlotToReveal(recipe, session.revealedSlots || []);
+    const nextSlot = getNextSlotToReveal(recipe, revealedSlots);
     if (nextSlot !== null) {
-      if (!session.revealedSlots) session.revealedSlots = [];
-      session.revealedSlots.push(nextSlot);
+      revealedSlots.push(nextSlot);
+      session.revealedSlots = revealedSlots;
     }
   }
 
+  const currentSlots = session.revealedSlots as number[];
   return {
     correct,
     guessesRemaining: getGuessesRemaining(session),
-    grid: buildVisibleGrid(recipe, session.revealedSlots || []),
-    revealedSlots: session.revealedSlots || [],
+    grid: buildVisibleGrid(recipe, currentSlots),
+    revealedSlots: currentSlots,
     ingredientIcons: collectVisibleIcons(
-      buildVisibleGrid(recipe, session.revealedSlots || []),
+      buildVisibleGrid(recipe, currentSlots),
     ),
   };
 }
 
-export function getCraftingAnswer(
-  sessionId: string,
-): AnswerResponse | { error: string } {
+export function getCraftingAnswer(sessionId: string): AnswerResponse {
   const session = getSession(sessionId);
-  if (!session) return { error: "Session not found" };
+  if (!session) throw new Error("Session not found");
 
   const recipe = findRecipeById(session.targetId);
-  if (!recipe) return { error: "Recipe not found" };
+  if (!recipe) throw new Error("Recipe not found");
 
   session.solved = true;
-
   const item = getItems().find((i) => i.id === recipe.itemId);
 
   return {
     id: recipe.itemId,
     name: recipe.name,
-    textureUrl: item?.textureUrl ?? `/textures/${recipe.itemId}.png`,
+    textureUrl: item?.textureUrl ?? "",
     wikiUrl:
       item?.wikiUrl ??
       `https://minecraft.wiki/w/${recipe.name.replace(/ /g, "_")}`,
