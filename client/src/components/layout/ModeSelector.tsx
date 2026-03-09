@@ -55,12 +55,12 @@ const MODES: {
 
 export default function ModeSelector() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto py-8 px-4">
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 max-w-5xl mx-auto py-6 px-4">
       {MODES.map(({ mode, title, description, icon }) => (
         <Link
           key={mode}
           to={`/${mode}`}
-          className="mc-card hover:border-mc-gold transition-colors group flex flex-col items-center gap-3 py-6"
+          className="mc-card hover:border-mc-gold transition-colors group flex flex-col items-center gap-2 py-4"
         >
           <span className="text-3xl">{icon}</span>
           <h3 className="font-minecraft text-sm text-mc-gold group-hover:text-mc-green transition-colors">
